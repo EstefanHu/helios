@@ -1,0 +1,70 @@
+.marketingLayout {
+  // width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  min-height: 100vh;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--headerHeight);
+    padding: 0 12px;
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.7rem;
+      color: var(--text);
+      transition: color 0.2s;
+
+      &:hover {
+        color: var(--accent);
+      }
+
+      span {
+        display: inline;
+
+        @media only screen and (max-width: 500px) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  span {
+    display: flex;
+    justify-content: space-around;
+
+    a {
+      padding: 8px 24px;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      font-weight: 600;
+      margin: 0 10px;
+
+      &.start {
+        background-color: var(--accent);
+        color: white;
+        transition:
+          color 0.2s,
+          background-color 0.2s;
+
+        &:hover {
+          background-color: var(--background);
+          color: var(--text);
+        }
+      }
+
+      &.continue {
+        background-color: var(--background);
+        color: var(--text);
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: var(--accent);
+        }
+      }
+    }
+  }
+}
