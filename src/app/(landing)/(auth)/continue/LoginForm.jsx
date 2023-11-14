@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import styles from '../authLayout.module.scss';
 import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress';
@@ -10,13 +9,13 @@ const DEFAULT_DATA = {
   password: '',
 };
 
-export default function RegisterForm() {
+export default function LoginForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState(DEFAULT_DATA);
   const [errorData, setErrorData] = useState(DEFAULT_DATA);
 
-  const handleRegister = async (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
     if (isLoading) return;
     setErrorData(DEFAULT_DATA);
@@ -33,7 +32,7 @@ export default function RegisterForm() {
 
     setIsLoading(true);
     const { code, message } = await (
-      await fetch('/auth', {
+      await fetch('/api/user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -43,11 +42,11 @@ export default function RegisterForm() {
 
     if (code !== 201) return setErrorData({ emailAddress: message, password: message });
 
-    router.push('/welcome');
+    router.push('/');
   };
 
   return (
-    <form noValidate autoComplete='off' onSubmit={handleRegister} className={styles.form}>
+    <form noValidate autoComplete='off' onSubmit={handleSignIn} className={styles.form}>
       <fieldset>
         <input
           type='email'
@@ -68,12 +67,8 @@ export default function RegisterForm() {
 
       <input type='submit' className={styles.hidden} />
 
-      <p className={styles.text}>
-        By signing up, you agree to our <Link href='/tos'>terms of service</Link>
-      </p>
-
-      <button onClick={handleRegister} type='submit'>
-        Sign up
+      <button onClick={handleSignIn} type='submit'>
+        Sign in
       </button>
     </form>
   );
