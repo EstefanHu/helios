@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './marketingLayout.module.scss';
 
-export default function Layout({ children }) {
+export default function LandingLayout({ children }) {
   return (
     <div className={styles.marketingLayout}>
       <header>
@@ -15,7 +15,7 @@ export default function Layout({ children }) {
           </Link>
 
           <Link href='/continue' className={styles.continue}>
-            continue
+            write
           </Link>
         </span>
       </header>

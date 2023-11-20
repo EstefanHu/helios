@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { v4 as generateUUID } from 'uuid';
 import { cookies } from 'next/headers';
+import { v4 as generateUUID } from 'uuid';
 import bcrypt from 'bcrypt';
 import { BAD_REQUEST, INVALID_REQUEST, SUCCESS } from '@/lib/constants/httpResponses';
 import redis from '@/lib/config/redis';
@@ -18,14 +18,13 @@ const setUserSession = async (redis, userId) => {
 
 export async function POST(req) {
   const { emailAddress, password } = await req.json();
-  if (!emailAddress || !password) return new Response(BAD_REQUEST);
-  const user = { id: 1, password: 'password', emailAddress: 'ehu@gmail.com' };
-  if (!user) return new Response(INVALID_REQUEST);
-  if (!(await bcrypt.compare(password, user.password))) return new Response(INVALID_REQUEST);
+  if (!emailAddress || !password) return new NextResponse(BAD_REQUEST);
+  // if (!user) return new NextResponse(INVALID_REQUEST);
+  // if (!(await bcrypt.compare(password, user.password))) return new NextResponse(INVALID_REQUEST);
+  // const sessionToken = await setUserSession(redis, user.id);
+  const sessionToken = 'supersecrettoken';
 
-  const sessionToken = await setUserSession(redis, user.id);
-
-  return new Response(SUCCESS, {
+  return new NextResponse(SUCCESS, {
     headers: {
       'Set-Cookie': `heliosAuth=${sessionToken}; Max-Age=${
         process.env.SESSION_TTL

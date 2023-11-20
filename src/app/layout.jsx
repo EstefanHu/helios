@@ -7,7 +7,7 @@ export const metadata = {
   applicationName: 'Helios',
   title: 'Helios',
   description: 'An assistive journaling app',
-  keywords: ['journal', 'write', 'online'],
+  keywords: ['journal', 'diary', 'write'],
   creator: 'Estefan Hu',
 };
 

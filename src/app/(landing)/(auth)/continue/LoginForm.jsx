@@ -12,7 +12,10 @@ const DEFAULT_DATA = {
 export default function LoginForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [formData, setFormData] = useState(DEFAULT_DATA);
+  const [formData, setFormData] = useState({
+    emailAddress: 'g.host@email.com',
+    password: 'password',
+  });
   const [errorData, setErrorData] = useState(DEFAULT_DATA);
 
   const handleSignIn = async (e) => {
@@ -32,7 +35,7 @@ export default function LoginForm() {
 
     setIsLoading(true);
     const { code, message } = await (
-      await fetch('/api/user', {
+      await fetch('/auth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -40,9 +43,9 @@ export default function LoginForm() {
     ).json();
     setIsLoading(false);
 
-    if (code !== 201) return setErrorData({ emailAddress: message, password: message });
+    if (code !== 200) return setErrorData({ emailAddress: message, password: message });
 
-    router.push('/');
+    router.push('/home');
   };
 
   return (

@@ -6,6 +6,7 @@
   --accent: #f3b04e;
   --background: white;
   --backgroundAccent: #f2f2f2;
+  --backgroundAccentHover: rgb(220, 220, 220);
   --borderColor: #e6e6e6;
   --layout: #ffffff;
   --text: #333333;
@@ -17,6 +18,7 @@
   :root {
     --background: #1e1e1e;
     --backgroundAccent: #292929;
+    --backgroundAccentHover: #404040;
     --borderColor: #181818;
     --layout: #181818;
     --text: #f3f3f3;
@@ -101,6 +103,10 @@ table {
 
 a {
   text-decoration: none;
+}
+
+.visible {
+  visibility: visible !important;
 }
 
 @media (prefers-color-scheme: dark) {
