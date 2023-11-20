@@ -1,3 +1,65 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": ["prettier", "react"],
+  "extends": ["next/core-web-vitals", "plugin:react/recommended", "plugin:react/jsx-runtime", "prettier"],
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "overrides": [
+    {
+      "files": ["*.jsx", "*.js"]
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react/prop-types": 0,
+    "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+    "jsx-quotes": [2, "prefer-single"],
+    "max-len": [
+      "error",
+      120,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignoreComments": false,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreTrailingComments": true
+      }
+    ],
+    "strict": [2, "never"],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "class-methods-use-this": "error",
+    "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "mjs": "never",
+        "jsx": "ignorePackages",
+        "js": "ignorePackages",
+        "tsx": "ignorePackages",
+        "ts": "ignorePackages"
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/prefer-default-export": "off",
+    "padding-line-between-statements": ["error", { "blankLine": "always", "prev": "*", "next": "return" }]
+  }
 }

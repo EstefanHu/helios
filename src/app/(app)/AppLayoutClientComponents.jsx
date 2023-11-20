@@ -161,6 +161,14 @@ function MobileAppNav() {
         <BiSolidHomeHeart />
       </Link>
 
+      <Link href='/journey' className={pathname === '/journey' ? styles.selected : ''}>
+        <GiJourney />
+      </Link>
+
+      <Link href='/reflect' className={pathname === '/reflect' ? styles.selected : ''}>
+        <GiMirrorMirror />
+      </Link>
+
       <Link href='/profile' className={pathname === '/profile' ? styles.selected : ''}>
         <MdPersonOutline />
       </Link>

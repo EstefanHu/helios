@@ -1,4 +1,17 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+const { securityHeaders } = require('./src/lib/constants/httpHeaders');
 
-module.exports = nextConfig;
+module.exports = async (phase, { defaultConfig }) => {
+  return {
+    reactStrictMode: true,
+    swcMinify: true,
+    headers: async () => [
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ],
+    experimental: {
+      scrollRestoration: false,
+    },
+  };
+};

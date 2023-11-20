@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import styles from '../authLayout.module.scss';
-import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress';
+import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
 
 const DEFAULT_DATA = {
   emailAddress: '',

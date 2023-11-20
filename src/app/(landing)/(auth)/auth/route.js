@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { v4 as generateUUID } from 'uuid';
 import bcrypt from 'bcrypt';
-import { BAD_REQUEST, INVALID_REQUEST, SUCCESS } from '@/lib/constants/httpResponses';
-import redis from '@/lib/config/redis';
+import { BAD_REQUEST, INVALID_REQUEST, SUCCESS } from '@/lib/constants/httpResponses.js';
+import redis from '@/lib/config/redis.js';
 
 const setUserSession = async (redis, userId) => {
   const token = generateUUID();

@@ -1,8 +1,6 @@
 import { cookies } from 'next/headers';
-import redis from '@/lib/config/redis';
-
+import redis from '@/lib/config/redis.js';
 import WriteInput from '../WriteInput';
-
 import styles from './entry.module.scss';
 
 export const metadata = {

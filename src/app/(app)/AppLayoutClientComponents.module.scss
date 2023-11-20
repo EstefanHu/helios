@@ -30,7 +30,7 @@
     }
 
     &.mobile {
-      background-color: white;
+      background-color: var(--background);
       display: none;
 
       @media (max-width: 650px) {
