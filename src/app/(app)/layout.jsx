@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import { RxDashboard } from 'react-icons/rx';
-import { CgWebsite } from 'react-icons/cg';
+import { BiSolidHomeHeart } from 'react-icons/bi';
+import { GiJourney, GiMirrorMirror } from 'react-icons/gi';
 import { FiInbox } from 'react-icons/fi';
 
 import {
@@ -43,8 +43,18 @@ export default function AppLayout({ children }) {
 
           <div className={styles.menuLinks}>
             <Link href='/home' className={styles.link}>
-              <RxDashboard />
+              <BiSolidHomeHeart />
               <p>home</p>
+            </Link>
+
+            <Link href='/journey' className={styles.link}>
+              <GiJourney />
+              <p>journey</p>
+            </Link>
+
+            <Link href='/reflect' className={styles.link}>
+              <GiMirrorMirror />
+              <p>reflect</p>
             </Link>
 
             <Link href='/inbox' className={styles.link}>
