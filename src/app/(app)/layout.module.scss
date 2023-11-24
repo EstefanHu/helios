@@ -59,11 +59,12 @@
     .contentWrapper {
       overflow-y: scroll;
       height: 100%;
-      padding-top: 40px;
 
       .content {
         width: 100%;
+        max-width: 860px;
         margin: 0 auto;
+        padding: 40px 15px;
       }
     }
   }
