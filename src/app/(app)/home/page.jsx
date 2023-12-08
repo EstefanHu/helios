@@ -1,7 +1,14 @@
+import EntryDayWrapper from './EntryDayWrapper';
+import EntryListItem from './EntryListItem';
+
 export default function Home() {
   return (
     <div>
-      <h1>Home</h1>
+      <div className='entry-list-container'>
+        <EntryDayWrapper>
+          <EntryListItem />
+        </EntryDayWrapper>
+      </div>
     </div>
   );
 }
