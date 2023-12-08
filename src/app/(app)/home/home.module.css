@@ -1,18 +1,17 @@
 .dateBox {
-  width: 5rem;
-  height: 5rem;
   padding: 1rem;
-  background-color: var(--backgroundAccent);
   border-radius: var(--border-radius);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 0.5rem;
+  flex-basis: 5rem;
+  align-self: flex-start;
 }
 
 .dateBoxNumber {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--accent);
 }
@@ -21,4 +20,35 @@
   text-transform: capitalize;
   font-size: 0.9rem;
   letter-spacing: 0.25ch;
+}
+
+.entryDayWrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.entryDayList > * + * {
+  margin-top: 1rem;
+}
+
+.entryListItem {
+  background-color: var(--backgroundAccent);
+  border-radius: var(--border-radius);
+  padding: 1rem 2rem;
+}
+.entryListItem > * + * {
+  margin-top: 0.5rem;
+}
+
+.entryListItemTitle {
+  font-size: 1.5rem;
+}
+
+.entryListItemBody {
+  color: var(--textLighter);
+}
+
+.entryListItemTime {
+  color: var(--accent);
+  font-size: 0.9rem;
 }/*# sourceMappingURL=home.module.css.map */

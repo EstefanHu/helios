@@ -1,14 +1,14 @@
 'use client';
+import styles from './home.module.scss';
 
 export default function EntryListItem() {
   return (
-    <div className='entry-list-item'>
-      <h2>Title</h2>
-      <p className='entry-list-item--snippet'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam perferendis at eligendi voluptatibus recusandae
-        animi iusto accusantium vero totam dicta vel dolorum repellendus eaque architecto, aliquid ducimus aspernatur
-        sunt culpa alias ipsa minus nulla dolore quidem nihil! Mollitia, optio sunt? Sapiente at maxime quis, ipsa eum
-        laboriosam voluptatem minus nesciunt!
+    <div className={styles.entryListItem}>
+      <p className={styles.entryListItemTime}>7:52 PM</p>
+      <h2 className={styles.entryListItemTitle}>Title</h2>
+      <p className={styles.entryListItemBody}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem fugiat eius maiores at alias reprehenderit quo
+        quibusdam! Ipsa illo assumenda modi maxime nam architecto et?
       </p>
     </div>
   );

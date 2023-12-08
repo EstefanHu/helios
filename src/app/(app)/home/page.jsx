@@ -7,6 +7,7 @@ export default function Home() {
       <div className='entry-list-container'>
         <EntryDayWrapper>
           <EntryListItem />
+          <EntryListItem />
         </EntryDayWrapper>
       </div>
     </div>
