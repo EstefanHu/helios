@@ -1,3 +1,9 @@
+.entryMonthHeader {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
 .entryListContainer {
     > *+* {
         margin-top: 2.5rem;
@@ -13,7 +19,6 @@
     flex-direction: column;
     gap: 0.5rem;
     flex-basis: 5rem;
-    align-self: flex-start;
 }
 
 .dateBoxNumber {
@@ -31,6 +36,7 @@
 .entryDayWrapper {
     display: flex;
     gap: 1rem;
+    align-items: center;
 }
 
 .entryDayList {
