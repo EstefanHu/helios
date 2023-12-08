@@ -1,21 +1,20 @@
 'use client';
 import styles from './home.module.scss';
 
-export default function EntryListItem() {
+export default function EntryListItem({ entry }) {
   return (
     <div className={styles.entryDayWrapper}>
       <div className={styles.dateBox}>
-        <p className={styles.dateBoxNumber}>07</p>
-        <p className={styles.dateBoxWeekday}>Thu</p>
+        <p className={styles.dateBoxNumber}>{entry.creationDateTime.toLocaleString('default', { day: 'numeric' })}</p>
+        <p className={styles.dateBoxWeekday}>
+          {entry.creationDateTime.toLocaleString('default', { weekday: 'short' })}
+        </p>
       </div>
       <div className={styles.entryDayList}>
         <div className={styles.entryListItem}>
-          <p className={styles.entryListItemTime}>7:52 PM</p>
-          <h2 className={styles.entryListItemTitle}>Title</h2>
-          <p className={styles.entryListItemBody}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem fugiat eius maiores at alias reprehenderit
-            quo quibusdam! Ipsa illo assumenda modi maxime nam architecto et?
-          </p>
+          <p className={styles.entryListItemTime}>{entry.creationDateTime.toLocaleTimeString('en-US')}</p>
+          <h2 className={styles.entryListItemTitle}>{entry.title}</h2>
+          <p className={styles.entryListItemBody}>{entry.body}</p>
         </div>
       </div>
     </div>

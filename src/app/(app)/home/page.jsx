@@ -53,14 +53,18 @@ export default function Home() {
   return (
     <div>
       <div className={styles.entryListContainer}>
-        {entryMonths.map((month) => (
-          <EntryMonthWrapper key={month} month={month}>
-            <EntryListItem />
-            <EntryListItem />
-
-            <EntryListItem />
-          </EntryMonthWrapper>
-        ))}
+        {entryMonths.map((month) => {
+          const filteredEntriesByMonth = mockEntries.filter(
+            (entry) => entry.creationDateTime.toLocaleString('default', { month: 'long' }) === month
+          );
+          return (
+            <EntryMonthWrapper key={month} month={month}>
+              {filteredEntriesByMonth.map((entry) => (
+                <EntryListItem key={entry.id} entry={entry} />
+              ))}
+            </EntryMonthWrapper>
+          );
+        })}
       </div>
     </div>
   );
