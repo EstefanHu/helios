@@ -1,0 +1,48 @@
+.writeInput {
+  width: 100%;
+  outline: none;
+  resize: none;
+  flex-grow: 1;
+  font-size: 1.3rem;
+  padding: 10px 0;
+  line-height: 32px;
+  margin-bottom: 90px;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: var(--background);
+}
+@media (max-width: 450px) {
+  .writeInput {
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+    line-height: 1.25rem;
+  }
+}
+
+.writeFooter {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.writeFooter p {
+  font-size: 0.9rem;
+}
+@media (max-width: 450px) {
+  .writeFooter p {
+    font-size: 0.75rem;
+  }
+}
+.writeFooter p.count {
+  font-weight: 500;
+}
+.writeFooter span {
+  display: flex;
+  align-items: center;
+}
+.writeFooter span svg {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+}/*# sourceMappingURL=WriteInput.module.css.map */

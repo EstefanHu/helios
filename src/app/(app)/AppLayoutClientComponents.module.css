@@ -1,0 +1,251 @@
+.appLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.appLinks button {
+  background-color: var(--backgroundAccent);
+  text-transform: capitalize;
+  height: 40px;
+  min-width: 40px;
+  padding: 0 5px;
+  margin-left: 8px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.appLinks button:hover {
+  background-color: var(--backgroundAccentHover);
+}
+@media (max-width: 650px) {
+  .appLinks button:not(.mobile) {
+    visibility: hidden;
+  }
+}
+.appLinks button.mobile {
+  background-color: var(--background);
+  display: none;
+}
+@media (max-width: 650px) {
+  .appLinks button.mobile {
+    display: block;
+  }
+}
+.appLinks button image {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.appLinks button svg {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  pointer-events: none;
+}
+@media (max-width: 650px) {
+  .appLinks button svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+.appLinks button.headerLinkWriteButton {
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 5px 15px 35px;
+}
+.logo svg {
+  height: 22px;
+  width: 22px;
+  color: var(--accent);
+}
+@media (max-width: 1200px) {
+  .logo {
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+    margin: 5px 0 35px;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 11px 15px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  transition: background-color 0.2s;
+}
+.link:hover {
+  background-color: var(--backgroundAccent);
+}
+.link svg {
+  height: 22px;
+  width: 22px;
+  margin-right: 15px;
+  color: var(--text);
+}
+.link p {
+  color: var(--text);
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+@media (max-width: 1200px) {
+  .link {
+    justify-content: center;
+    padding: 11px;
+  }
+  .link svg {
+    margin-right: 0;
+  }
+  .link p {
+    display: none;
+  }
+}
+
+.selected svg {
+  color: var(--accent);
+}
+.selected p {
+  color: var(--accent);
+}
+
+.more {
+  height: 44px;
+  width: 49px;
+  background-color: var(--background);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.more svg {
+  height: 22px;
+  width: 22px;
+  color: var(--text);
+}
+.more:hover {
+  background-color: var(--backgroundAccent);
+}
+
+.write {
+  background-color: var(--accent);
+  color: white;
+  border-radius: 4px;
+  border: 2px solid var(--accent);
+  height: 40px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-top: auto;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.write:hover {
+  background-color: white;
+  color: var(--accent);
+}
+@media (max-width: 1200px) {
+  .write {
+    display: none;
+  }
+}
+
+.MenuUserDetails {
+  display: flex;
+  padding: 6px 10px 6px 6px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.MenuUserDetails .ImageWrapper {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+.MenuUserDetails .ImageWrapper image {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.MenuUserDetails:hover {
+  background-color: var(--backgroundAccent);
+}
+.MenuUserDetails .profileInfo {
+  color: var(--accent);
+  padding-top: 2px;
+  flex-grow: 1;
+}
+.MenuUserDetails .profileInfo .primary {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.MenuUserDetails .profileInfo .secondary {
+  font-size: 0.75rem;
+  color: #808080;
+}
+
+.mobileAppNav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: var(--background);
+  border-top: 1px solid var(--backgroundAccent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  z-index: 98;
+}
+@media (min-width: 650px) {
+  .mobileAppNav {
+    display: none;
+  }
+}
+.mobileAppNav a svg {
+  color: var(--text);
+  width: 27px;
+  height: 27px;
+}
+.mobileAppNav a.selected {
+  border-bottom: 2px solid var(--accent);
+}
+.mobileAppNav a.selected svg {
+  color: var(--accent);
+}
+
+.pageName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.signout {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  width: 100%;
+  background-color: var(--background);
+  border-radius: 5px;
+  padding: 14px 10px;
+  color: rgb(124, 124, 124);
+  font-size: 0.9rem;
+  text-align: left;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.signout:hover {
+  background-color: var(--backgroundAccent);
+}/*# sourceMappingURL=AppLayoutClientComponents.module.css.map */

@@ -1,0 +1,24 @@
+.dateBox {
+    width: 5rem;
+    height: 5rem;
+    padding: 1rem;
+    background-color: var(--backgroundAccent);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dateBoxNumber {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.dateBoxWeekday {
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    letter-spacing: 0.25ch;
+}
