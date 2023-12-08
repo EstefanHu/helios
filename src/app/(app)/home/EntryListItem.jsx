@@ -12,7 +12,12 @@ export default function EntryListItem({ entry }) {
       </div>
       <div className={styles.entryDayList}>
         <div className={styles.entryListItem}>
-          <p className={styles.entryListItemTime}>{entry.creationDateTime.toLocaleTimeString('en-US')}</p>
+          <p className={styles.entryListItemTime}>
+            {Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric', hour12: true }).format(
+              entry.creationDateTime
+            )}
+          </p>
+
           <h2 className={styles.entryListItemTitle}>{entry.title}</h2>
           <p className={styles.entryListItemBody}>{entry.body}</p>
         </div>
