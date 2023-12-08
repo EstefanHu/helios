@@ -46,15 +46,21 @@ const mockEntries = [
 ];
 
 export default function Home() {
+  const monthSet = new Set();
+  mockEntries.forEach((entry) => monthSet.add(entry.creationDateTime.toLocaleString('default', { month: 'long' })));
+  const entryMonths = [...monthSet];
+
   return (
     <div>
       <div className={styles.entryListContainer}>
-        <EntryMonthWrapper>
-          <EntryListItem />
-          <EntryListItem />
+        {entryMonths.map((month) => (
+          <EntryMonthWrapper key={month} month={month}>
+            <EntryListItem />
+            <EntryListItem />
 
-          <EntryListItem />
-        </EntryMonthWrapper>
+            <EntryListItem />
+          </EntryMonthWrapper>
+        ))}
       </div>
     </div>
   );
