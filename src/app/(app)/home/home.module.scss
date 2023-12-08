@@ -1,3 +1,9 @@
+.entryListContainer {
+    > *+* {
+        margin-top: 2.5rem;
+    }
+}
+
 .dateBox {
     padding: 1rem;
     border-radius: var(--border-radius);
