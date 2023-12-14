@@ -1,3 +1,39 @@
+.homeContainer {
+    position: relative;
+}
+
+// styles for top section, which includes
+// search bar, jump to date
+.entryListTopMenu {
+    position: sticky;
+    top: 0;
+    background-color: var(--background);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.entrySearchContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--backgroundAccent);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    width: min(40rem, 100%);
+}
+
+.entrySearchbar {
+    width: 100%;
+    background-color: transparent;
+}
+
+.jumpToDateBtn {
+    background-color: transparent;
+}
+//
+
 .entryMonthHeader {
     color: var(--accent);
     font-weight: 600;
