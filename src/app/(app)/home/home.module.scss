@@ -10,6 +10,7 @@
     background-color: var(--background);
     padding: 1rem 0;
     display: flex;
+    gap: 1rem;
     justify-content: space-between;
     margin-bottom: 2rem;
 }
@@ -21,7 +22,7 @@
     background-color: var(--backgroundAccent);
     padding: 0.5rem 1rem;
     border-radius: 8px;
-    width: min(40rem, 100%);
+    width: 100%;
 }
 
 .searchbar {
@@ -30,7 +31,10 @@
 }
 
 .jumpToDateBtn {
+    width: 8rem;
+    font-size: 0.9rem;
     background-color: transparent;
+    cursor: pointer;
 }
 //
 
