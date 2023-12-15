@@ -42,7 +42,8 @@
 }
 
 .entryListContainer {
-    > *+* {
+    // applies spacing to any child that has something above it
+    > *+* { 
         margin-top: 2.5rem;
     }
 }
@@ -103,6 +104,10 @@
 
 .entryListItemBody {
     color: var(--textLighter);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 .entryListItemTime {

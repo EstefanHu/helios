@@ -19,7 +19,9 @@ export default function EntryListItem({ entry }) {
           </p>
 
           <h2 className={styles.entryListItemTitle}>{entry.title}</h2>
-          <p className={styles.entryListItemBody}>{entry.body}</p>
+          <div className={styles.entryListItemBody}>
+            <p>{entry.body}</p>
+          </div>
         </div>
       </div>
     </div>

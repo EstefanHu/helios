@@ -7,15 +7,15 @@ const mockEntries = [
   {
     id: 1,
     title: 'Title',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum vestibulum nisi, eu tincidunt ligula hendrerit sit amet. Nullam a turpis vel est aliquam consectetur.',
-    creationDateTime: new Date('December 7, 2023 18:30:00'),
-    updatedDateTime: new Date('December 7, 2023 18:30:00'),
+    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
+    creationDateTime: new Date('December 8, 2023 18:30:00'),
+    updatedDateTime: new Date('December 8, 2023 18:30:00'),
     tags: ['peaceful', 'evening', 'reflection'],
   },
   {
     id: 2,
     title: 'Title',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel mauris id purus sagittis dapibus a ac urna. Vivamus scelerisque, dolor a sodales eleifend, nunc justo commodo elit.',
+    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
     creationDateTime: new Date('December 7, 2023 21:15:00'),
     updatedDateTime: new Date('December 7, 2023 21:15:00'),
     tags: ['city lights', 'adventure', 'friends'],
@@ -23,7 +23,7 @@ const mockEntries = [
   {
     id: 3,
     title: 'Title',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, metus ac pharetra congue, ligula augue vestibulum sapien, in pulvinar justo eros sit amet erat.',
+    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
     creationDateTime: new Date('December 5, 2023 19:00:00'),
     updatedDateTime: new Date('December 5, 2023 19:00:00'),
     tags: ['thanksgiving', 'family', 'gratitude'],
@@ -31,7 +31,7 @@ const mockEntries = [
   {
     id: 4,
     title: 'Title',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies, leo in ullamcorper posuere, ligula libero sagittis velit, vitae efficitur libero augue sit amet lectus.',
+    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
     creationDateTime: new Date('November 18, 2023 14:45:00'),
     updatedDateTime: new Date('November 18, 2023 14:45:00'),
     tags: ['rainy day', 'introspection', 'coziness'],
@@ -39,7 +39,7 @@ const mockEntries = [
   {
     id: 5,
     title: 'Title',
-    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod sem eu lacus posuere, eu pellentesque mi tincidunt. Nulla facilisi. Duis volutpat ex vel accumsan convallis.',
+    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
     creationDateTime: new Date('November 5, 2023 11:00:00'),
     updatedDateTime: new Date('November 5, 2023 11:00:00'),
     tags: ['autumn', 'nature', 'inspiration'],
