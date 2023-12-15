@@ -4,7 +4,7 @@
 
 // styles for top section, which includes
 // search bar, jump to date
-.entryListTopMenu {
+.searchFilterContainer {
     position: sticky;
     top: 0;
     background-color: var(--background);
@@ -14,7 +14,7 @@
     margin-bottom: 2rem;
 }
 
-.entrySearchContainer {
+.searchContainer {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -24,7 +24,7 @@
     width: min(40rem, 100%);
 }
 
-.entrySearchbar {
+.searchbar {
     width: 100%;
     background-color: transparent;
 }

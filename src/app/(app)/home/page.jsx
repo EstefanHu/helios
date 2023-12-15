@@ -1,8 +1,7 @@
 import EntryListItem from './EntryListItem';
 import EntryMonthWrapper from './EntryMonthWrapper';
+import SearchFilterContainer from './SearchFilterContainer';
 import styles from './home.module.scss';
-
-import { IoSearch } from 'react-icons/io5';
 
 const mockEntries = [
   {
@@ -48,19 +47,14 @@ const mockEntries = [
 ];
 
 export default function Home() {
+  // use a set to obtain a list of the months that have an entry
   const monthSet = new Set();
   mockEntries.forEach((entry) => monthSet.add(entry.creationDateTime.toLocaleString('default', { month: 'long' })));
   const entryMonths = [...monthSet];
 
   return (
     <div className={styles.homeContainer}>
-      <div className={styles.entryListTopMenu}>
-        <div className={styles.entrySearchContainer}>
-          <IoSearch />
-          <input type='text' className={styles.entrySearchbar} />
-        </div>
-        <button className={styles.jumpToDateBtn}>Jump to date</button>
-      </div>
+      <SearchFilterContainer />
       <div className={styles.entryListContainer}>
         {entryMonths.map((month) => {
           const filteredEntriesByMonth = mockEntries.filter(
