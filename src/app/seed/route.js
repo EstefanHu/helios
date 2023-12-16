@@ -12,11 +12,11 @@ export async function POST() {
     const userTable = await client.query(`
         CREATE TABLE IF NOT EXISTS hero (
           id SERIAL PRIMARY KEY,
-          firstName VARCHAR(255) NOT NULL,
-          lastName VARCHAR(255) NOT NULL,
           emailAddress VARCHAR(255) UNIQUE NOT NULL,
           emailConfirmed BOOLEAN DEFAULT FALSE,
-          password VARCHAR(255),
+          firstName VARCHAR(255),
+          lastName VARCHAR(255),
+          password VARCHAR(255) NOT NULL,
           createdAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
           updatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
         );
