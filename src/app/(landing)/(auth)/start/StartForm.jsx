@@ -10,10 +10,13 @@ const DEFAULT_DATA = {
   password: '',
 };
 
-export default function RegisterForm() {
+export default function RegisterForm({ createHero }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [formData, setFormData] = useState(DEFAULT_DATA);
+  const [formData, setFormData] = useState({
+    emailAddress: 'g.host@email.com',
+    password: 'password',
+  });
   const [errorData, setErrorData] = useState(DEFAULT_DATA);
 
   const handleRegister = async (e) => {
@@ -28,22 +31,16 @@ export default function RegisterForm() {
 
     if (!emailAddress) errors.emailAddress = 'email is requried';
     if (emailAddress && !ValidateEmailAddress(emailAddress)) errors.emailAddress = 'invalid email';
-    if (!password) errors.password = 'password is required';
-    if (errors.password !== '' || errors.emailAddress !== '') return setErrorData(errors);
+    // if (!password) errors.password = 'password is required';
+    // if (errors.password !== '' || errors.emailAddress !== '') return setErrorData(errors);
 
     setIsLoading(true);
-    const { code, message } = await (
-      await fetch('/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-    ).json();
+    const { code, message } = await createHero(emailAddress, password);
     setIsLoading(false);
 
     if (code !== 201) return setErrorData({ emailAddress: message, password: message });
 
-    router.push('/welcome');
+    // router.push('/welcome');
   };
 
   return (
