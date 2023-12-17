@@ -11,12 +11,12 @@ export async function POST() {
 
     const userTable = await client.query(`
         CREATE TABLE IF NOT EXISTS hero (
-          id SERIAL PRIMARY KEY,
-          emailAddress VARCHAR(255) UNIQUE NOT NULL,
+          id uuid PRIMARY KEY,
+          emailAddress VARCHAR(100) UNIQUE NOT NULL,
           emailConfirmed BOOLEAN DEFAULT FALSE,
-          firstName VARCHAR(255),
-          lastName VARCHAR(255),
-          password VARCHAR(255) NOT NULL,
+          firstName VARCHAR(20),
+          lastName VARCHAR(20),
+          password VARCHAR(200) NOT NULL,
           createdAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
           updatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
         );
@@ -34,10 +34,16 @@ export async function POST() {
       );
     `);
 
+    // const garyTheUser = await client.query(`
+    //   INSERT INTO hero(emailAddress, firstName, lastName, password)
+    //   VALUES ('g.host@gmail.com', 'Gary', 'Host', '$2y$10$VRZ6uIYPCEp6a.JcvWGZgeDlRYU3ZeDIBPM4H6X2NjGApAjOjNfvC')
+    // `);
+
     await client.query('COMMIT');
 
     return NextResponse.json({ result: { userTable, entryTable } }, { status: 200 });
   } catch (error) {
+    console.log(error)
     await client.query('ROLLBACK');
 
     return NextResponse.json({ error }, { status: 500 });
