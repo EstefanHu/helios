@@ -52,9 +52,7 @@
       {
         "mjs": "never",
         "jsx": "ignorePackages",
-        "js": "ignorePackages",
-        "tsx": "ignorePackages",
-        "ts": "ignorePackages"
+        "js": "ignorePackages"
       }
     ],
     "react-hooks/rules-of-hooks": "error",

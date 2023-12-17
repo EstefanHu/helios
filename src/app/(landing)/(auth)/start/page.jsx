@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import StartForm from './StartForm';
 import styles from '../authLayout.module.scss';
-import { v4 as generateUUID } from 'uuid';
 import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
 import bcrypt from 'bcrypt';
 import { connectToDatabase } from '@/lib/config/postgres.js';
@@ -15,18 +14,17 @@ export default function page() {
 
     try {
       const hashedPassword = await bcrypt.hash(password, 10);
-      const response = await client.query('INSERT INTO hero(emailAddress, password) VALUES ($1, $2) RETURNING id;', [
+      await client.query('INSERT INTO hero(emailAddress, password) VALUES ($1, $2) RETURNING id;', [
         emailAddress,
         hashedPassword,
       ]);
 
-      console.log(response);
-
       return { code: 201, message: 'hero created' };
     } catch (error) {
-      // TODO: log failure in ledger
-      console.log(error.code);
-      switch (error.code) {
+      const { code, column } = error;
+      switch (code) {
+        case '23502':
+          return { code: 400, message: `Missing field: ${column}` };
         case '23505':
           return { code: 409, message: 'email address already in use' };
         default:

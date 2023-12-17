@@ -2,8 +2,11 @@ import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { v4 as generateUUID } from 'uuid';
 import bcrypt from 'bcrypt';
-import { BAD_REQUEST, INVALID_REQUEST, SUCCESS } from '@/lib/constants/httpResponses.js';
+import { BAD_REQUEST, CREATED, INVALID_REQUEST, SERVER_ERROR, SUCCESS } from '@/lib/constants/httpResponses.js';
 import redis from '@/lib/config/redis.js';
+import { connectToDatabase } from '@/lib/config/postgres.js';
+import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
+const { pool } = connectToDatabase();
 
 const setUserSession = async (redis, userId) => {
   const token = generateUUID();
@@ -19,18 +22,31 @@ const setUserSession = async (redis, userId) => {
 export async function POST(req) {
   const { emailAddress, password } = await req.json();
   if (!emailAddress || !password) return new NextResponse(BAD_REQUEST);
-  // if (!user) return new NextResponse(INVALID_REQUEST);
-  // if (!(await bcrypt.compare(password, user.password))) return new NextResponse(INVALID_REQUEST);
-  // const sessionToken = await setUserSession(redis, user.id);
-  const sessionToken = 'supersecrettoken';
+  if (!ValidateEmailAddress(emailAddress)) return new NextResponse(BAD_REQUEST);
+  const client = await pool.connect();
 
-  return new NextResponse(SUCCESS, {
-    headers: {
-      'Set-Cookie': `heliosAuth=${sessionToken}; Max-Age=${
-        process.env.SESSION_TTL
-      }; SameSite=Strict; Path=/; HttpOnly ${process.env.NODE_ENV !== 'development' && '; Secure'}`,
-    },
-  });
+  try {
+    const { rows } = await client.query(`SELECT * FROM hero WHERE emailAddress = '${emailAddress}'`);
+    if (rows.length === 0) return new NextResponse(INVALID_REQUEST);
+    const user = rows[0];
+    if (!(await bcrypt.compare(password, user.password))) return new NextResponse(INVALID_REQUEST);
+    // const sessionToken = await setUserSession(redis, user.id);
+    const sessionToken = 'supersecrettoken';
+
+    return new NextResponse(CREATED, {
+      headers: {
+        'Set-Cookie': `heliosAuth=${sessionToken}; Max-Age=${
+          process.env.SESSION_TTL
+        }; SameSite=Strict; Path=/; HttpOnly ${process.env.NODE_ENV !== 'development' && '; Secure'}`,
+      },
+    });
+  } catch (error) {
+    return new NextResponse(SERVER_ERROR, {
+      headers: { 'Set-Cookie': 'heliosAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; Max-Age=0;' },
+    });
+  } finally {
+    client.release();
+  }
 }
 
 export async function GET(req) {

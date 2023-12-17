@@ -10,7 +10,7 @@ const DEFAULT_DATA = {
   password: '',
 };
 
-export default function RegisterForm({ createHero }) {
+export default function StartForm({ createHero }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ export default function RegisterForm({ createHero }) {
   });
   const [errorData, setErrorData] = useState(DEFAULT_DATA);
 
-  const handleRegister = async (e) => {
+  const handleStartRequest = async (e) => {
     e.preventDefault();
     if (isLoading) return;
     setErrorData(DEFAULT_DATA);
@@ -31,20 +31,42 @@ export default function RegisterForm({ createHero }) {
 
     if (!emailAddress) errors.emailAddress = 'email is requried';
     if (emailAddress && !ValidateEmailAddress(emailAddress)) errors.emailAddress = 'invalid email';
-    // if (!password) errors.password = 'password is required';
-    // if (errors.password !== '' || errors.emailAddress !== '') return setErrorData(errors);
+    if (!password) errors.password = 'password is required';
+    if (errors.password !== '' || errors.emailAddress !== '') return setErrorData(errors);
 
     setIsLoading(true);
-    const { code, message } = await createHero(emailAddress, password);
-    setIsLoading(false);
+    try {
+      const createHeroResponse = await createHero(emailAddress, password);
+      if (createHeroResponse.code !== 201) throw { code: createHeroResponse.code };
+      const authenticateResponse = await (
+        await fetch('/auth', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        })
+      ).json();
+      if (authenticateResponse.code !== 201) throw { code: authenticateResponse.code };
 
-    if (code !== 201) return setErrorData({ emailAddress: message, password: message });
-
-    // router.push('/welcome');
+      // TODO: route to onboarding
+      router.push('/home');
+    } catch ({ code }) {
+      switch (code) {
+        case 409:
+          return setErrorData({ emailAddress: 'Email already in use', password: '' });
+        default:
+          // TODO: log error in error ledger
+          return setErrorData({ global: 'Something went wrong on our end, try again later.' });
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <form noValidate autoComplete='off' onSubmit={handleRegister} className={styles.form}>
+    <form noValidate autoComplete='off' onSubmit={handleStartRequest} className={styles.form}>
       <fieldset>
         <input
           type='email'
@@ -69,7 +91,7 @@ export default function RegisterForm({ createHero }) {
         By signing up, you agree to our <Link href='/tos'>terms of service</Link>
       </p>
 
-      <button onClick={handleRegister} type='submit'>
+      <button onClick={handleStartRequest} type='submit'>
         Sign up
       </button>
     </form>
