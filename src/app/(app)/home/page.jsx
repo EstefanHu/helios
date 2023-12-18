@@ -148,6 +148,7 @@ export default function Home() {
           const filteredEntriesByMonth = mockEntries.filter(
             (entry) => entry.creationDateTime.toLocaleString('default', { month: 'long' }) === month
           );
+
           return (
             <EntryMonthWrapper key={month} month={month}>
               {filteredEntriesByMonth.map((entry) => (
