@@ -1,0 +1,127 @@
+.homeContainer {
+    position: relative;
+    padding-bottom: 4rem;
+}
+
+// styles for top section, which includes
+// search bar, jump to date
+.searchFilterContainer {
+    position: sticky;
+    top: 0;
+    background-color: var(--background);
+    padding: 1rem 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    z-index: 2;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--backgroundAccent);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.searchbar {
+    width: 100%;
+    background-color: transparent;
+}
+
+.jumpToDateBtn {
+    width: 8rem;
+    font-size: 0.9rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+//
+
+.entryMonthHeader {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    position: sticky;
+    top: 4rem;
+    background: var(--background);
+    padding: 1rem;
+}
+
+.entryListContainer {
+    // applies spacing to any child that has something above it
+    > *+* { 
+        margin-top: 2.5rem;
+    }
+}
+
+.dateBox {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 0 0 5rem;
+}
+
+.dateBoxNumber {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.dateBoxWeekday {
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    letter-spacing: 0.25ch;
+}
+
+.entryDayWrapper {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.entryDayList {
+    > *+* {
+        margin-top: 1rem;
+    }
+}
+
+.entryListItem {
+    background-color: var(--backgroundAccent);
+    border-radius: var(--border-radius);
+    padding: 1rem 2rem;
+    transition: 0.25s background-color ease-in-out;
+    > *+* {
+        margin-top: 0.5rem;
+    }
+}
+
+.entryListItem:hover {
+    background-color: var(--backgroundAccentHover); 
+    cursor: pointer;
+}
+
+.entryListItemTitle {
+    font-size: 1.5rem;
+}
+
+.entryListItemBody {
+    color: var(--textLighter);
+    line-height: 150%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.entryListItemTime {
+    color: var(--textSecondary);
+    font-size: 0.9rem;
+}
