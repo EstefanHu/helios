@@ -5,6 +5,14 @@ import styles from './home.module.scss';
 
 const mockEntries = [
   {
+    id: 0,
+    title: 'Title',
+    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
+    creationDateTime: new Date('October 31, 2023 18:30:00'),
+    updatedDateTime: new Date('December 8, 2023 18:30:00'),
+    tags: ['peaceful', 'evening', 'reflection'],
+  },
+  {
     id: 1,
     title: 'Title',
     body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
@@ -45,99 +53,32 @@ const mockEntries = [
     tags: ['autumn', 'nature', 'inspiration'],
   },
   {
-    id: 5,
+    id: 6,
     title: 'Title',
     body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
+    creationDateTime: new Date('October 24, 2023 11:00:00'),
     updatedDateTime: new Date('November 5, 2023 11:00:00'),
     tags: ['autumn', 'nature', 'inspiration'],
   },
   {
-    id: 5,
+    id: 7,
     title: 'Title',
     body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
-    updatedDateTime: new Date('November 5, 2023 11:00:00'),
-    tags: ['autumn', 'nature', 'inspiration'],
-  },
-  {
-    id: 5,
-    title: 'Title',
-    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
-    updatedDateTime: new Date('November 5, 2023 11:00:00'),
-    tags: ['autumn', 'nature', 'inspiration'],
-  },
-  {
-    id: 5,
-    title: 'Title',
-    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
-    updatedDateTime: new Date('November 5, 2023 11:00:00'),
-    tags: ['autumn', 'nature', 'inspiration'],
-  },
-  {
-    id: 5,
-    title: 'Title',
-    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
-    updatedDateTime: new Date('November 5, 2023 11:00:00'),
-    tags: ['autumn', 'nature', 'inspiration'],
-  },
-  {
-    id: 5,
-    title: 'Title',
-    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
-    updatedDateTime: new Date('November 5, 2023 11:00:00'),
-    tags: ['autumn', 'nature', 'inspiration'],
-  },
-  {
-    id: 5,
-    title: 'Title',
-    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
-    updatedDateTime: new Date('November 5, 2023 11:00:00'),
-    tags: ['autumn', 'nature', 'inspiration'],
-  },
-  {
-    id: 5,
-    title: 'Title',
-    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
-    updatedDateTime: new Date('November 5, 2023 11:00:00'),
-    tags: ['autumn', 'nature', 'inspiration'],
-  },
-  {
-    id: 5,
-    title: 'Title',
-    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
-    updatedDateTime: new Date('November 5, 2023 11:00:00'),
-    tags: ['autumn', 'nature', 'inspiration'],
-  },
-  {
-    id: 5,
-    title: 'Title',
-    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
-    updatedDateTime: new Date('November 5, 2023 11:00:00'),
-    tags: ['autumn', 'nature', 'inspiration'],
-  },
-  {
-    id: 5,
-    title: 'Title',
-    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique eos nobis voluptatum quibusdam aspernatur animi dignissimos fugit reprehenderit, delectus perferendis cupiditate laudantium laboriosam ullam dolore quo, deleniti saepe omnis. Id sed nam, omnis similique deleniti quo esse architecto, nulla cum ex quidem. Quam esse doloribus tempora perferendis, minima possimus, aliquam voluptates odio ab, rem provident unde amet magnam fugiat facilis pariatur deleniti non consectetur vel libero nostrum blanditiis totam debitis accusantium. Dicta corrupti labore consequatur, vel velit voluptate est eum sint optio. Autem porro corporis ea consectetur numquam neque minima ducimus praesentium qui velit iste vitae voluptate, eum quae necessitatibus?',
-    creationDateTime: new Date('November 5, 2023 11:00:00'),
+    creationDateTime: new Date('November 12, 2023 11:00:00'),
     updatedDateTime: new Date('November 5, 2023 11:00:00'),
     tags: ['autumn', 'nature', 'inspiration'],
   },
 ];
 
 export default function Home() {
-  // use a set to obtain a list of the months that have an entry
+  let reverseChronoEntries = mockEntries.sort((a, b) => b.creationDateTime - a.creationDateTime);
+
+  // use a set to obtain a list of the months that have an entry,
+  // for use when mapping to EntryMonthWrapper
   const monthSet = new Set();
-  mockEntries.forEach((entry) => monthSet.add(entry.creationDateTime.toLocaleString('default', { month: 'long' })));
+  reverseChronoEntries.forEach((entry) =>
+    monthSet.add(entry.creationDateTime.toLocaleString('default', { month: 'long' }))
+  );
   const entryMonths = [...monthSet];
 
   return (
@@ -145,7 +86,7 @@ export default function Home() {
       <SearchFilterContainer />
       <div className={styles.entryListContainer}>
         {entryMonths.map((month) => {
-          const filteredEntriesByMonth = mockEntries.filter(
+          const filteredEntriesByMonth = reverseChronoEntries.filter(
             (entry) => entry.creationDateTime.toLocaleString('default', { month: 'long' }) === month
           );
 
