@@ -1,3 +1,52 @@
+.homeContainer {
+  position: relative;
+}
+
+.searchFilterContainer {
+  position: sticky;
+  top: 0;
+  background-color: var(--background);
+  padding: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--backgroundAccent);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.searchbar {
+  width: 100%;
+  background-color: transparent;
+}
+
+.jumpToDateBtn {
+  width: 8rem;
+  font-size: 0.9rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.entryMonthHeader {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 4rem;
+  background: var(--background);
+  padding: 1rem;
+}
+
 .entryListContainer > * + * {
   margin-top: 2.5rem;
 }
@@ -10,8 +59,7 @@
   align-items: center;
   flex-direction: column;
   gap: 0.5rem;
-  flex-basis: 5rem;
-  align-self: flex-start;
+  flex: 0 0 5rem;
 }
 
 .dateBoxNumber {
@@ -29,6 +77,7 @@
 .entryDayWrapper {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
 .entryDayList > * + * {
@@ -39,9 +88,15 @@
   background-color: var(--backgroundAccent);
   border-radius: var(--border-radius);
   padding: 1rem 2rem;
+  transition: 0.25s background-color ease-in-out;
 }
 .entryListItem > * + * {
   margin-top: 0.5rem;
+}
+
+.entryListItem:hover {
+  background-color: var(--backgroundAccentHover);
+  cursor: pointer;
 }
 
 .entryListItemTitle {
@@ -50,9 +105,14 @@
 
 .entryListItemBody {
   color: var(--textLighter);
+  line-height: 150%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .entryListItemTime {
-  color: var(--accent);
+  color: var(--textSecondary);
   font-size: 0.9rem;
 }/*# sourceMappingURL=home.module.css.map */
