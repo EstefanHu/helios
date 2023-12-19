@@ -7,7 +7,7 @@ import { FiInbox } from 'react-icons/fi';
 import {
   AppLinks,
   AppNav,
-  MenuUserDetails,
+  MenuSeekerDetails,
   MobileAppNav,
   Notifications,
   PageName,
@@ -17,6 +17,11 @@ import {
 import styles from './layout.module.scss';
 
 export default function AppLayout({ children }) {
+  const getSeeker = async () => {
+    'use server';
+    console.log('GETTING Seeker');
+  };
+
   return (
     <div className={styles.wrapper}>
       <nav className={styles.appNav}>
@@ -37,7 +42,7 @@ export default function AppLayout({ children }) {
 
       <div className={styles.appheaderMenuWrapper} id='menu'>
         <div className={styles.appHeaderMenu}>
-          <MenuUserDetails />
+          <MenuSeekerDetails getSeeker={getSeeker} />
 
           <hr />
 

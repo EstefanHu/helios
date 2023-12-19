@@ -9,7 +9,7 @@ const DEFAULT_DATA = {
   password: '',
 };
 
-export default function LoginForm() {
+export default function ContinueForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({

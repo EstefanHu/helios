@@ -10,7 +10,7 @@ const DEFAULT_DATA = {
   password: '',
 };
 
-export default function StartForm({ createHero }) {
+export default function StartForm({ createSeeker }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -36,8 +36,8 @@ export default function StartForm({ createHero }) {
 
     setIsLoading(true);
     try {
-      const createHeroResponse = await createHero(emailAddress, password);
-      if (createHeroResponse.code !== 201) throw { code: createHeroResponse.code };
+      const createSeekerResponse = await createSeeker(emailAddress, password);
+      if (createSeekerResponse.code !== 201) throw { code: createSeekerResponse.code };
       const authenticateResponse = await (
         await fetch('/auth', {
           method: 'POST',
