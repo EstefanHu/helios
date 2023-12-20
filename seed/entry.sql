@@ -2,12 +2,14 @@ CREATE TABLE IF NOT EXISTS entry (
 	id SERIAL NOT NULL PRIMARY KEY,
 	title VARCHAR(255),
 	body TEXT,
-	createdAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-	updatedAt TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	seeker_id INT NOT NULL,
+	CONSTRAINT fk_seeker FOREIGN KEY(seeker_id) REFERENCES seeker(id)
 );
 
 INSERT INTO
-	entry (title, body)
+	entry (title, body, seeker_id)
 VALUES
 	(
 		'nam congue risus semper porta volutpat quam pede lobortis ligula sit amet',
@@ -17,39 +19,43 @@ Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque
 
 Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
 
-Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.'
+Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.',
+		1
 	);
 
 INSERT INTO
-	entry (title, body)
+	entry (title, body, seeker_id)
 VALUES
 	(
 		'volutpat eleifend donec ut dolor morbi',
 		'Phasellus in felis. Donec semper sapien a libero. Nam dui.
 
-Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.'
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.',
+		1
 	);
 
 INSERT INTO
-	entry (title, body)
+	entry (title, body, seeker_id)
 VALUES
 	(
 		'in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in',
-		'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.'
+		'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.',
+		1
 	);
 
 INSERT INTO
-	entry (title, body)
+	entry (title, body, seeker_id)
 VALUES
 	(
 		'suspendisse potenti nullam porttitor lacus at turpis',
 		'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
 
-Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.'
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.',
+		1
 	);
 
 INSERT INTO
-	entry (title, body)
+	entry (title, body, seeker_id)
 VALUES
 	(
 		'auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet',
@@ -57,11 +63,12 @@ VALUES
 
 Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
 
-Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.'
+Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
+		1
 	);
 
 INSERT INTO
-	entry (title, body)
+	entry (title, body, seeker_id)
 VALUES
 	(
 		'proin at turpis a pede posuere',
@@ -77,11 +84,12 @@ Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, 
 
 Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
 
-Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.'
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.',
+		1
 	);
 
 INSERT INTO
-	entry (title, body)
+	entry (title, body, seeker_id)
 VALUES
 	(
 		'sapien non mi integer ac neque duis bibendum morbi',
@@ -97,11 +105,12 @@ Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non
 
 Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
 
-Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.'
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.',
+		1
 	);
 
 INSERT INTO
-	entry (title, body)
+	entry (title, body, seeker_id)
 VALUES
 	(
 		'augue a suscipit nulla elit ac nulla sed vel enim sit amet',
@@ -115,11 +124,12 @@ Sed ante. Vivamus tortor. Duis mattis egestas metus.
 
 Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
 
-Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.'
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.',
+		1
 	);
 
 INSERT INTO
-	entry (title, body)
+	entry (title, body, seeker_id)
 VALUES
 	(
 		'volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam',
@@ -127,11 +137,12 @@ VALUES
 
 In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
 
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.'
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.',
+		1
 	);
 
 INSERT INTO
-	entry (title, body)
+	entry (title, body, seeker_id)
 VALUES
 	(
 		'nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut',
@@ -139,5 +150,6 @@ VALUES
 
 In congue. Etiam justo. Etiam pretium iaculis justo.
 
-In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.'
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.',
+		1
 	);

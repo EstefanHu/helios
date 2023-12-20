@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint  . --ext .js",
     "lint:fix": "prettier --write . && eslint --fix .",
-    "postgres::seed": "./seed/_generate.sh"
+    "postgres::seed": "chmod +x seed/_generate.sh && ./seed/_generate.sh",
+    "postgres::drop": "chmod +x seed/_drop_database.sh && ./seed/_drop_database.sh"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
