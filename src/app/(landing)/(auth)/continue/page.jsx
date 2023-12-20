@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import LoginForm from './LoginForm';
+import ContinueForm from './ContinueForm';
 import styles from '../authLayout.module.scss';
 
 export default function Continue() {
@@ -9,7 +9,7 @@ export default function Continue() {
         Continue <span>story</span>
       </h1>
 
-      <LoginForm />
+      <ContinueForm />
 
       <p>
         don&apos;t have an account? <Link href='/start'>Sign up</Link>

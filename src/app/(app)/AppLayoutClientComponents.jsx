@@ -117,35 +117,27 @@ function AppNav() {
   );
 }
 
-const DEFAULT_USER = {
+const DEFAULT_SEEKER = {
   name: '',
   emailAddress: '',
   imageUrl: '',
 };
 
-function MenuUserDetails() {
-  const [user, setUser] = useState(DEFAULT_USER);
+function MenuSeekerDetails({ getSeeker }) {
+  const [seeker, setSeeker] = useState(DEFAULT_SEEKER);
 
-  useEffect(() => {
-    // fetch('/user', { method: 'GET' })
-    //   .then((res) => res.json())
-    //   .then(({ data }) => {
-    //     setUser(data);
-    //   });
-  }, []);
-
-  if (!user) return null;
+  if (!seeker) return null;
 
   return (
     <Link href='/profile'>
-      <div className={styles.MenuUserDetails}>
+      <div className={styles.MenuSeekerDetails}>
         <div className={styles.ImageWrapper}>
-          <Image src={user.imageUrl || '/images/defaultProfileImage.webp'} alt='profile picture' sizes='100%' fill />
+          <Image src={seeker.imageUrl || '/images/defaultProfileImage.webp'} alt='profile picture' sizes='100%' fill />
         </div>
 
         <div className={styles.profileInfo}>
-          <p className={styles.primary}>{user.name}</p>
-          <p className={styles.secondary}>{user.emailAddress}</p>
+          <p className={styles.primary}>{seeker.name}</p>
+          <p className={styles.secondary}>{seeker.emailAddress}</p>
         </div>
       </div>
     </Link>
@@ -216,4 +208,4 @@ export default function SignOut() {
   );
 }
 
-export { AppLinks, AppNav, MenuUserDetails, MobileAppNav, Notifications, PageName, SignOut };
+export { AppLinks, AppNav, MenuSeekerDetails, MobileAppNav, Notifications, PageName, SignOut };

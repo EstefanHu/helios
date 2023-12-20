@@ -26,7 +26,7 @@ export async function POST(req) {
   const client = await pool.connect();
 
   try {
-    const { rows } = await client.query(`SELECT * FROM hero WHERE emailAddress = '${emailAddress}'`);
+    const { rows } = await client.query(`SELECT * FROM seeker WHERE emailAddress = '${emailAddress}'`);
     if (rows.length === 0) return new NextResponse(INVALID_REQUEST);
     const user = rows[0];
     if (!(await bcrypt.compare(password, user.password))) return new NextResponse(INVALID_REQUEST);
