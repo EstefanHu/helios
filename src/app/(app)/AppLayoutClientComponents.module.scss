@@ -1,65 +1,3 @@
-.appLinks {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  button {
-    background-color: var(--backgroundAccent);
-    text-transform: capitalize;
-    height: 40px;
-    min-width: 40px;
-    padding: 0 5px;
-    margin-left: 8px;
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text);
-    cursor: pointer;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background-color: var(--backgroundAccentHover);
-    }
-
-    @media (max-width: 650px) {
-      &:not(.mobile) {
-        visibility: hidden;
-      }
-    }
-
-    &.mobile {
-      background-color: var(--background);
-      display: none;
-
-      @media (max-width: 650px) {
-        display: block;
-      }
-    }
-
-    image {
-      object-fit: contain;
-    }
-
-    svg {
-      @media (max-width: 650px) {
-        width: 22px;
-        height: 22px;
-      }
-
-      width: 18px;
-      height: 18px;
-      margin: 0;
-      pointer-events: none;
-    }
-
-    &.headerLinkWriteButton {
-      padding: 0 20px;
-    }
-  }
-}
-
 .logo {
   display: flex;
   align-items: center;
@@ -174,47 +112,6 @@
   }
 }
 
-.MenuSeekerDetails {
-  display: flex;
-  padding: 6px 10px 6px 6px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-
-  .ImageWrapper {
-    position: relative;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 15px;
-
-    image {
-      object-fit: cover;
-    }
-  }
-
-  &:hover {
-    background-color: var(--backgroundAccent);
-  }
-
-  .profileInfo {
-    color: var(--accent);
-    padding-top: 2px;
-    flex-grow: 1;
-
-    .primary {
-      font-size: 0.85rem;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    .secondary {
-      font-size: 0.75rem;
-      color: #808080;
-    }
-  }
-}
-
 .mobileAppNav {
   position: absolute;
   bottom: 0;
@@ -254,23 +151,4 @@
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: capitalize;
-}
-
-.signout {
-  display: flex;
-  align-items: center;
-  height: 35px;
-  width: 100%;
-  background-color: var(--background);
-  border-radius: 5px;
-  padding: 14px 10px;
-  color: rgb(124, 124, 124);
-  font-size: 0.9rem;
-  text-align: left;
-  transition: background-color 0.2s;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--backgroundAccent);
-  }
 }
