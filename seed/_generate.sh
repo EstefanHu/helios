@@ -15,7 +15,6 @@ color_off='\033[0m'
 
 bold=$(tput bold)
 reset=$(tput sgr0)
-
 port=5432
 db=heliosdb
 user=helios
@@ -77,4 +76,4 @@ if $should_create_database; then
 fi
 
 echo -e "Data generation complete!"
-echo -e "You can now connect to postgres using: ${purple}postgres://${user}:${password}@localhost:${port}/${db}"
+echo -e "You can now connect to postgres using: ${purple}postgres://${user}:${password}@localhost:${port}/${db}${color_off}"
