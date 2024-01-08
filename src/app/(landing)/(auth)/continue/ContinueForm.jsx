@@ -43,7 +43,7 @@ export default function ContinueForm() {
     ).json();
     setIsLoading(false);
 
-    if (code !== 200) return setErrorData({ emailAddress: message, password: message });
+    if (code !== 201) return setErrorData({ emailAddress: message, password: message });
 
     router.push('/home');
   };
