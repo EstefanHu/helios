@@ -30,8 +30,7 @@ export async function POST(req) {
     if (rows.length === 0) return new NextResponse(INVALID_REQUEST);
     const user = rows[0];
     if (!(await bcrypt.compare(password, user.password))) return new NextResponse(INVALID_REQUEST);
-    // const sessionToken = await setUserSession(redis, user.id);
-    const sessionToken = 'supersecrettoken';
+    const sessionToken = await setUserSession(redis, user.id);
 
     return new NextResponse(CREATED, {
       headers: {
