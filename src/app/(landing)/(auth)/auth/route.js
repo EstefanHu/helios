@@ -8,13 +8,15 @@ import { connectToDatabase } from '@/lib/config/postgres.js';
 import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
 const { pool } = connectToDatabase();
 
-const setUserSession = async (redis, userId) => {
+const setUserSession = async (userId) => {
+  if (process.env.DISABLE_SESSIONS === 'true') return 'supersecrettoken';
+
   const token = generateUUID();
   const key = `heliosUser:${token}`;
   const repeatedToken = await redis.exists(key);
-  if (repeatedToken === 1) return setUserSession(redis, userId);
+  if (repeatedToken === 1) return setUserSession(userId);
   await redis.hset(key, 'userId', userId);
-  await redis.expire(key, Number(process.env.SESSION_TTL));
+  await redis.expire(key, Number(process.env.SESSIONS_TTL));
 
   return token;
 };
@@ -30,12 +32,12 @@ export async function POST(req) {
     if (rows.length === 0) return new NextResponse(INVALID_REQUEST);
     const user = rows[0];
     if (!(await bcrypt.compare(password, user.password))) return new NextResponse(INVALID_REQUEST);
-    const sessionToken = await setUserSession(redis, user.id);
+    const sessionToken = await setUserSession(user.id);
 
     return new NextResponse(CREATED, {
       headers: {
         'Set-Cookie': `heliosAuth=${sessionToken}; Max-Age=${
-          process.env.SESSION_TTL
+          process.env.SESSIONS_TTL
         }; SameSite=Strict; Path=/; HttpOnly ${process.env.NODE_ENV !== 'development' && '; Secure'}`,
       },
     });
@@ -54,7 +56,7 @@ export async function GET(req) {
   return new Response(SUCCESS, {
     headers: {
       'Set-Cookie': `heliosAuth=${sessionToken}; Max-Age=${
-        process.env.SESSION_TTL
+        process.env.SESSIONS_TTL
       }; SameSite=Strict; Path=/; HttpOnly ${process.env.NODE_ENV !== 'development' && '; Secure'}`,
     },
   });
