@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '../authLayout.module.scss';
 import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
+import { dummy_seeker } from '@/lib/constants/dummy_data.js';
 
 const DEFAULT_DATA = {
   emailAddress: '',
@@ -12,10 +13,7 @@ const DEFAULT_DATA = {
 export default function ContinueForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    emailAddress: 'g.host@email.com',
-    password: 'password',
-  });
+  const [formData, setFormData] = useState(process.env.USE_DUMMY_DATA === 'true' ? dummy_seeker : DEFAULT_DATA);
   const [errorData, setErrorData] = useState(DEFAULT_DATA);
 
   const handleSignIn = async (e) => {
