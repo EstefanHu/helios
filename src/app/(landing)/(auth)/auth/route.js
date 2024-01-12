@@ -9,8 +9,9 @@ import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
 const { pool } = connectToDatabase();
 
 const setUserSession = async (userId) => {
-  if (process.env.DISABLE_SESSIONS === 'true') return 'supersecrettoken';
-
+  // if (process.env.DISABLE_SESSIONS === 'true') 
+  return 'supersecrettoken';
+  console.log('path check')
   const token = generateUUID();
   const key = `heliosUser:${token}`;
   const repeatedToken = await redis.exists(key);
@@ -22,13 +23,16 @@ const setUserSession = async (userId) => {
 };
 
 export async function POST(req) {
+
   const { emailAddress, password } = await req.json();
   if (!emailAddress || !password) return new NextResponse(BAD_REQUEST);
   if (!ValidateEmailAddress(emailAddress)) return new NextResponse(BAD_REQUEST);
+
   const client = await pool.connect();
 
   try {
-    const { rows } = await client.query(`SELECT * FROM seeker WHERE emailAddress = '${emailAddress}'`);
+    const { rows } = await client.query(`SELECT * FROM seeker WHERE emailAddress = '${emailAddress}'`);    
+    
     if (rows.length === 0) return new NextResponse(INVALID_REQUEST);
     const user = rows[0];
     if (!(await bcrypt.compare(password, user.password))) return new NextResponse(INVALID_REQUEST);
