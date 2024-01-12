@@ -1,5 +1,6 @@
 'use client';
 import styles from './home.module.scss';
+import Link from 'next/link'
 
 export default function EntryListItem({ entry }) {
   return (
@@ -10,7 +11,7 @@ export default function EntryListItem({ entry }) {
           {entry.creationDateTime.toLocaleString('default', { weekday: 'short' })}
         </p>
       </div>
-      <div className={styles.entryDayList}>
+      <Link href={`home/entries/${entry.id}`}>
         <div className={styles.entryListItem}>
           <p className={styles.entryListItemTime}>
             {Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric', hour12: true }).format(
@@ -22,8 +23,8 @@ export default function EntryListItem({ entry }) {
           <div className={styles.entryListItemBody}>
             <p>{entry.body}</p>
           </div>
-        </div>
       </div>
+      </Link>
     </div>
   );
 }
