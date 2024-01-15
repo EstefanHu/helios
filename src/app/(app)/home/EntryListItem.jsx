@@ -6,16 +6,16 @@ export default function EntryListItem({ entry }) {
   return (
     <div className={styles.entryDayWrapper}>
       <div className={styles.dateBox}>
-        <p className={styles.dateBoxNumber}>{entry.creationDateTime.toLocaleString('default', { day: 'numeric' })}</p>
+        <p className={styles.dateBoxNumber}>{entry.created_at.toLocaleString('default', { day: 'numeric' })}</p>
         <p className={styles.dateBoxWeekday}>
-          {entry.creationDateTime.toLocaleString('default', { weekday: 'short' })}
+          {entry.created_at.toLocaleString('default', { weekday: 'short' })}
         </p>
       </div>
       <Link href={`home/entries/${entry.id}`}>
         <div className={styles.entryListItem}>
           <p className={styles.entryListItemTime}>
             {Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric', hour12: true }).format(
-              entry.creationDateTime
+              entry.created_at
             )}
           </p>
 
