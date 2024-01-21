@@ -2,24 +2,11 @@ import EntryListItem from './EntryListItem';
 import EntryMonthWrapper from './EntryMonthWrapper';
 import SearchFilterContainer from './SearchFilterContainer';
 import styles from './home.module.scss';
-import { connectToDatabase } from '@/lib/config/postgres.js';
-const { pool } = connectToDatabase();
+import { getEntries } from '@/app/actions/entries'
 
 export default async function Home() {
-  const fetchEntries = async () => {
-    'use server';
-    const client = await pool.connect();
-    try {
-      const res = await client.query('SELECT * FROM entry WHERE seeker_id = 1')  
-      return res.rows
-    } catch (error) {
-      return error.stack
-    }  finally {
-      client.release();
-    }
-  }
 
-  const mockEntries = await fetchEntries()
+  let mockEntries = await getEntries()
   let reverseChronoEntries = mockEntries.sort((a, b) => b.created_at - a.created_at);
 
   // use a set to obtain a list of the months that have an entry,
