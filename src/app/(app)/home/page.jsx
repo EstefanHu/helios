@@ -6,8 +6,8 @@ import { getEntries } from '@/app/actions/entries'
 
 export default async function Home() {
 
-  let mockEntries = await getEntries()
-  let reverseChronoEntries = mockEntries.sort((a, b) => b.created_at - a.created_at);
+  // TODO: should take a dynamic user id
+  let reverseChronoEntries = await getEntries(1)
 
   // use a set to obtain a list of the months that have an entry,
   // for use when mapping to EntryMonthWrapper
