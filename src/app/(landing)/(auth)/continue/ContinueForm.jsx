@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '../authLayout.module.scss';
 import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
-import { dummy_seeker } from '@/lib/constants/dummy_data.js';
 
 const DEFAULT_DATA = {
   emailAddress: '',
@@ -13,7 +12,7 @@ const DEFAULT_DATA = {
 export default function ContinueForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [formData, setFormData] = useState(process.env.USE_DUMMY_DATA === 'true' ? dummy_seeker : DEFAULT_DATA);
+  const [formData, setFormData] = useState(DEFAULT_DATA);
   const [errorData, setErrorData] = useState(DEFAULT_DATA);
 
   const handleSignIn = async (e) => {
@@ -32,13 +31,12 @@ export default function ContinueForm() {
     if (errors.password !== '' || errors.emailAddress !== '') return setErrorData(errors);
 
     setIsLoading(true);
-    const { code, message } = await (
-      await fetch('/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-    ).json();
+    const response = await fetch('/auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    const { code, message } = await response.json();
     setIsLoading(false);
 
     if (code !== 201) return setErrorData({ emailAddress: message, password: message });

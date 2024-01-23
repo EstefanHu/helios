@@ -17,7 +17,7 @@ export async function POST(req) {
   }
 }
 
-export async function GET(req) {
+export async function GET() {
   const client = await pool.connect();
 
   try {
