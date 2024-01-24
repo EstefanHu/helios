@@ -1,6 +1,44 @@
 import Link from 'next/link';
 import styles from './marketingLayout.module.scss';
 
+const MARKETING_LINKS = [
+  {
+    link: '/about',
+    text: 'about',
+  },
+  {
+    link: '/contact',
+    text: 'help',
+  },
+  {
+    link: '/roadmap',
+    text: 'roadmap',
+  },
+  {
+    link: '/contact',
+    text: 'contact',
+  },
+];
+
+const LEGAL_LINKS = [
+  {
+    link: '/privacy',
+    text: 'privacy',
+  },
+  {
+    link: '/tos',
+    text: 'terms',
+  },
+  {
+    link: '/ccpa',
+    text: 'collection notice',
+  },
+  {
+    link: '/sitemap',
+    text: 'sitemap',
+  },
+];
+
 export default function LandingLayout({ children }) {
   return (
     <div className={styles.marketingLayout}>
@@ -19,8 +57,31 @@ export default function LandingLayout({ children }) {
           </Link>
         </span>
       </header>
-
       <main>{children}</main>
+      <div className={styles.footerWrapper}>
+        <div className={styles.marketingLinks}>
+          {MARKETING_LINKS.map(({ link, text }) => (
+            <Link key={text} href={link}>
+              {text}
+            </Link>
+          ))}
+        </div>
+
+        <footer>
+          <Link href='/' className={styles.footerName}>
+            <span className={styles.prjkt}>prjkt</span>
+            :helios
+          </Link>
+
+          <div className={styles.legalLinks}>
+            {LEGAL_LINKS.map(({ link, text }) => (
+              <Link key={text} href={link}>
+                {text}
+              </Link>
+            ))}
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
