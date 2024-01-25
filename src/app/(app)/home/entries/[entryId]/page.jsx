@@ -4,7 +4,9 @@ import styles from './viewer.module.scss';
 
 
 export default async function Page({ params }) {
-  const entry = await getEntry(params.entryId)
+  const entryResponse = await getEntry(params.entryId)
+  const entry = entryResponse[0]
+  
   return (
     <section className={styles.viewerContainer}>
       <div className="viewer-nav">
@@ -13,21 +15,21 @@ export default async function Page({ params }) {
       
       <section className={styles.viewerDetails}>
           <div className={styles.createdTimeDate}>
-            <span className={styles.date}>{entry[0].created_at.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})}</span>|
-            <span className={styles.date}>{entry[0].created_at.toLocaleTimeString('en-us', { timeStyle: 'short' })}</span>
+            <span className={styles.date}>{entry.created_at.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})}</span>|
+            <span className={styles.date}>{entry.created_at.toLocaleTimeString('en-us', { timeStyle: 'short' })}</span>
           </div>
           <div className={styles.edit}>
             <button className={styles.editButton}>Edit</button>
-            <span className={styles.editedText}>last edited {entry[0].updated_at.toLocaleDateString('en-us', { month:"short", day:"numeric"})}</span>
+            <span className={styles.editedText}>last edited {entry.updated_at.toLocaleDateString('en-us', { month:"short", day:"numeric"})}</span>
           </div>
       </section>
 
       <section className={styles.viewerHeader}>
-        <h1 className={styles.title}>{entry[0].title}</h1>
+        <h1 className={styles.title}>{entry.title}</h1>
       </section>
 
       <section className={styles.body}>
-        <p>{entry[0].body}</p>
+        <p>{entry.body}</p>
       </section>
     </section>
   )
