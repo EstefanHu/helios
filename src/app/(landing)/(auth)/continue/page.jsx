@@ -2,6 +2,8 @@ import Link from 'next/link';
 import ContinueForm from './ContinueForm';
 import styles from '../authLayout.module.scss';
 
+export const metadata = { title: 'Continue Your Journey' };
+
 export default function Continue() {
   return (
     <div className={styles.authPage}>
