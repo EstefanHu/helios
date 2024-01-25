@@ -19,6 +19,12 @@ export default function sitemap() {
       priority: 0.5,
     },
     {
+      url: 'https://helios-journal.com/recover_account',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
       url: 'https://helios-journal.com/about',
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -32,6 +38,18 @@ export default function sitemap() {
     },
     {
       url: 'https://helios-journal.com/contact',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://helios-journal.com/tos',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://helios-journal.com/privacy',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
