@@ -12,7 +12,11 @@
     padding: 80px 20px;
 
     &.secondary {
-      background-color: #f1f1f1;
+      background-color: var(--layout);
+    }
+
+    &.tertiary {
+      background-color: var(--backgroundAccent);
     }
 
     div {
@@ -29,8 +33,6 @@
   }
 
   .details {
-    background-color: var(--layout);
-    padding: 50px;
   }
 
   .offer {
