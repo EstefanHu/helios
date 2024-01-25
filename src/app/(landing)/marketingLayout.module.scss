@@ -43,7 +43,7 @@
       font-weight: 600;
       margin: 0 10px;
 
-      &.start {
+      &.continue {
         background-color: var(--accent);
         color: white;
         transition:
@@ -56,7 +56,7 @@
         }
       }
 
-      &.continue {
+      &.start {
         background-color: var(--background);
         color: var(--text);
         transition: background-color 0.2s;

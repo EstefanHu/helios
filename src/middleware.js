@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-const landingRoutes = ['/', '/continue', '/start'];
 const appRoutes = ['/home', '/write', '/profile', '/journey', '/reflect'];
+const authRoutes = ['/continue', '/start'];
 
 export default function middleware(req) {
   const hasAuthCookie = req.cookies.has('heliosAuth');
@@ -14,7 +14,7 @@ export default function middleware(req) {
       url.pathname = '/';
       response = NextResponse.redirect(url);
     }
-  } else if (landingRoutes.includes(pathname)) {
+  } else if (authRoutes.includes(pathname)) {
     if (hasAuthCookie) {
       const url = req.nextUrl.clone();
       url.pathname = '/home';
