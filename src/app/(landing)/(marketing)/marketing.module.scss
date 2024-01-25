@@ -1,0 +1,209 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  section {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    padding: 80px 20px;
+
+    &.secondary {
+      background-color: #f1f1f1;
+    }
+
+    div {
+      width: 100%;
+      max-width: 1100px;
+    }
+  }
+
+  .hero {
+    h1 {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+  }
+
+  .details {
+    background-color: var(--layout);
+    padding: 50px;
+  }
+
+  .offer {
+  }
+
+  .quote {
+    padding: 50px 0 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 950px;
+
+    @media (max-width: 650px) {
+      padding: 0;
+    }
+
+    p {
+      font-size: 2rem;
+      line-height: 48px;
+      font-weight: 100;
+      text-align: center;
+      margin-bottom: 25px;
+      font-family:
+        Roboto Slab,
+        serif;
+
+      @media (max-width: 650px) {
+        font-weight: 100;
+        line-height: 2.2rem;
+        font-size: 1.8rem;
+      }
+    }
+
+    h3 {
+      text-align: center;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    a {
+      width: 200px;
+      height: 45px;
+      background-color: var(--accent);
+      border-radius: 5px;
+      border: 2px solid var(--accent);
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      text-transform: capitalize;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--background);
+      }
+    }
+  }
+
+  .faq {
+    display: flex;
+    flex-direction: column;
+    max-width: 950px;
+
+    .header {
+      text-align: center;
+      margin-bottom: 90px;
+      @media (max-width: 650px) {
+        margin-bottom: 40px;
+      }
+
+      .facts {
+        font-family: Lato, Helvetica, sans-serif;
+        display: inline;
+        color: var(--accent);
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        @media (max-width: 450px) {
+          font-size: 1.8rem;
+        }
+      }
+
+      .helios {
+        font-family: Lato, Helvetica, sans-serif;
+        display: inline;
+        font-size: 3rem;
+        text-transform: capitalize;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 90px;
+
+        @media (max-width: 450px) {
+          font-size: 2.5rem;
+        }
+      }
+    }
+
+    .bullet {
+      display: flex;
+      margin-bottom: 80px;
+      width: 100%;
+      @media (max-width: 650px) {
+        flex-direction: column;
+        margin-bottom: 50px;
+        padding: 0 15px;
+      }
+
+      h3 {
+        width: 50%;
+        font-size: 2.2rem;
+        line-height: 2.2rem;
+        font-family:
+          Roboto Slab,
+          serif;
+        padding-right: 50px;
+        @media (max-width: 650px) {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+
+      p {
+        width: 50%;
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.5rem;
+        @media (max-width: 650px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 0 110px;
+
+    h1 {
+      font-size: 3.5rem;
+      line-height: 4rem;
+      text-align: center;
+      margin-bottom: 40px;
+      font-family:
+        Roboto Slab,
+        serif;
+      text-transform: capitalize;
+    }
+
+    a {
+      text-transform: capitalize;
+      font-size: 1.1rem;
+      width: 150px;
+      height: 40px;
+      background-color: var(--accent);
+      border-radius: 5px;
+      border: 2px solid var(--accent);
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+
+      &:hover {
+        background-color: var(--background);
+      }
+    }
+  }
+}
