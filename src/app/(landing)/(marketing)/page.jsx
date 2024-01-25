@@ -40,11 +40,15 @@ export default function Marketing() {
         </div>
       </section>
 
-      <section className={styles.details}></section>
+      <section className={styles.secondary}>
+        <div className={styles.details}>
+          <h1>Ever wished that your journal grew with you?</h1>
+        </div>
+      </section>
 
       <section className={styles.offer}></section>
 
-      <section>
+      <section className={styles.tertiary}>
         <div className={styles.quote}>
           <p>&quot;Preserve your memories, keep them well, what you forget you can never retell.&quot;</p>
 
@@ -54,7 +58,7 @@ export default function Marketing() {
         </div>
       </section>
 
-      <section>
+      <section className={styles.secondary}>
         <div className={styles.faq}>
           <span className={styles.header}>
             <h2 className={styles.facts}>faq</h2>

@@ -29,42 +29,46 @@
         }
       }
     }
-  }
 
-  span {
-    display: flex;
-    justify-content: space-around;
+    nav {
+      display: flex;
+      justify-content: space-around;
 
-    a {
-      padding: 8px 24px;
-      border: 2px solid var(--accent);
-      border-radius: 4px;
-      font-weight: 600;
-      margin: 0 10px;
+      a {
+        padding: 8px 24px;
+        border: 2px solid var(--accent);
+        border-radius: 4px;
+        font-weight: 600;
+        margin: 0 10px;
 
-      &.continue {
-        background-color: var(--accent);
-        color: white;
-        transition:
-          color 0.2s,
-          background-color 0.2s;
+        &.continue {
+          background-color: var(--accent);
+          color: white;
+          transition:
+            color 0.2s,
+            background-color 0.2s;
 
-        &:hover {
+          &:hover {
+            background-color: var(--background);
+            color: var(--text);
+          }
+        }
+
+        &.start {
           background-color: var(--background);
           color: var(--text);
-        }
-      }
+          transition: background-color 0.2s;
 
-      &.start {
-        background-color: var(--background);
-        color: var(--text);
-        transition: background-color 0.2s;
-
-        &:hover {
-          background-color: var(--accent);
+          &:hover {
+            background-color: var(--accent);
+          }
         }
       }
     }
+  }
+
+  main {
+    flex: 1;
   }
 
   .footerWrapper {

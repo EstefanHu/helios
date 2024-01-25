@@ -12,7 +12,7 @@ const MARKETING_LINKS = [
     text: 'about',
   },
   {
-    link: '/contact',
+    link: '/help',
     text: 'help',
   },
   {
@@ -74,9 +74,9 @@ export default function LandingLayout({ children }) {
           :H<span>elios</span>
         </Link>
 
-        <span>
+        <nav>
           <LandingLinks getCurrentSession={getCurrentSession} />
-        </span>
+        </nav>
       </header>
       <main>{children}</main>
       <div className={styles.footerWrapper}>

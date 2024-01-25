@@ -19,13 +19,19 @@ export default function sitemap() {
       priority: 0.5,
     },
     {
-      url: 'https://helios-journal.com/tos',
+      url: 'https://helios-journal.com/about',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
-      url: 'https://helios-journal.com/privacy',
+      url: 'https://helios-journal.com/help',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://helios-journal.com/contact',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,

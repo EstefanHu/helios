@@ -102,8 +102,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: white;
-      color: var(--accent);
+      background-color: var(--background);
     }
   }
 }
