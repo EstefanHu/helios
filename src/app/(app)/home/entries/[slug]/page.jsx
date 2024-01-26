@@ -1,17 +1,15 @@
 import { getEntry } from "@/app/actions/entries"
 import { getEntries } from "@/app/actions/entries"
 import styles from './viewer.module.scss';
-import slugify from "slugify";
 
-// Return a list of `params` to populate the [slug] dynamic segment
-// export async function generateStaticParams() {
-//   // TODO: replace user id
-//   const entries = await getEntries(1).then((res) => res.json())
+export async function generateStaticParams() {
+  // TODO: replace user id
+  const entries = await getEntries(1);
  
-//   return entries.map((entry) => ({
-//     slug: slugify(entry.title)
-//   }))
-// }
+  return entries.map((entry) => ({
+    slug: entry.slug
+  }))
+}
 
 export default async function Page({ params }) {
   const entryResponse = await getEntry(params.slug)
