@@ -16,10 +16,10 @@ export async function getEntries(userId) {
   }
 }
 
-export async function getEntry(entryId) {
+export async function getEntry(slug) {
   const client = await pool.connect();
   try {
-    const res = await client.query('SELECT * FROM entry WHERE id = $1', [entryId])  
+    const res = await client.query('SELECT * FROM entry WHERE slug = $1', [slug])  
     return res.rows
   } catch (error) {
     console.log(error)

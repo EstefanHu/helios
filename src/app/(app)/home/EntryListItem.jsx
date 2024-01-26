@@ -11,7 +11,7 @@ export default function EntryListItem({ entry }) {
           {entry.created_at.toLocaleString('default', { weekday: 'short' })}
         </p>
       </div>
-      <Link href={`home/entries/${entry.id}`}>
+      <Link href={`home/entries/${entry.slug}`}>
         <div className={styles.entryListItem}>
           <p className={styles.entryListItemTime}>
             {Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric', hour12: true }).format(
