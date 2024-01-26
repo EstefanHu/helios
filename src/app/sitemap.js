@@ -31,6 +31,12 @@ export default function sitemap() {
       priority: 0.5,
     },
     {
+      url: 'https://helios-journal.com/roadmap',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
       url: 'https://helios-journal.com/help',
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -38,6 +44,18 @@ export default function sitemap() {
     },
     {
       url: 'https://helios-journal.com/contact',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://helios-journal.com/support',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://helios-journal.com/careers',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,

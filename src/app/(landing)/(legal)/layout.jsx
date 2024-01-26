@@ -11,22 +11,6 @@ const DOCUMENTS = [
     text: 'Privacy Policy',
   },
   {
-    link: '/publisher_agreement',
-    text: 'Publisher Agreement',
-  },
-  {
-    link: '/content_guidelines',
-    text: 'Content Guidelines',
-  },
-  {
-    link: '/dispute',
-    text: 'Copyright Dispute Policy',
-  },
-  {
-    link: '/repeat_infringer',
-    text: 'Repeat Infringer Policy',
-  },
-  {
     link: '/ccpa',
     text: 'CCPA Policy',
   },

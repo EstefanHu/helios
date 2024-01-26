@@ -20,7 +20,7 @@ export default function LandingLinks({ getCurrentSession }) {
     <>
       {!isLoading && !seeker && (
         <Link href='/start' className={styles.start}>
-          start journey
+          start<span> journey</span>
         </Link>
       )}
 
