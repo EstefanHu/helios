@@ -2,19 +2,16 @@ import EntryListItem from './EntryListItem';
 import EntryMonthWrapper from './EntryMonthWrapper';
 import SearchFilterContainer from './SearchFilterContainer';
 import styles from './home.module.scss';
-import { getEntries } from '@/app/actions/entries'
+import { getEntries } from '@/app/actions/entries.js';
 
 export default async function Home() {
-
   // TODO: should take a dynamic user id
-  let reverseChronoEntries = await getEntries(1)
+  let reverseChronoEntries = await getEntries(1);
 
   // use a set to obtain a list of the months that have an entry,
   // for use when mapping to EntryMonthWrapper
   const monthSet = new Set();
-  reverseChronoEntries.forEach((entry) =>
-    monthSet.add(entry.created_at.toLocaleString('default', { month: 'long' }))
-  );
+  reverseChronoEntries.forEach((entry) => monthSet.add(entry.created_at.toLocaleString('default', { month: 'long' })));
   const entryMonths = [...monthSet];
 
   return (

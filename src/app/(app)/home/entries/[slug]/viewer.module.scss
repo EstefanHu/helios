@@ -1,44 +1,46 @@
 .viewerHeader {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .title {
-    font-size: 2.5rem;}
+  font-size: 2.5rem;
+}
 
 .body {
-    color: var(--textLighter);
-    line-height: 1.75;
+  color: var(--textLighter);
+  line-height: 1.75;
 }
 
 .viewerDetails {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .createdTimeDate {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    gap: 0.75rem;
+    color: var(--accent);
+  }
 
-    .createdTimeDate {
-        display: flex;
-        flex-direction: row;
-        gap: 0.75rem;
-        color: var(--accent);
-    }
+  .edit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
 
-    .edit {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 0.5rem;
-    }
+  .editButton {
+    font-weight: 500;
+    text-transform: capitalize;
+  }
 
-    .editButton {
-        font-weight: 500;
-    }
-
-    .editedText {
-        opacity: 0.75;
-        font-style: italic;
-        font-size: 0.9rem;
-        color: var(--textLighter);
-    }
+  .editedText {
+    opacity: 0.75;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--textLighter);
+  }
 }
