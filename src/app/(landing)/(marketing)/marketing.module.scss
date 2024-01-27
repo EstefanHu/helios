@@ -10,6 +10,7 @@
     justify-content: center;
     width: 100vw;
     padding: 80px 20px;
+    overflow: hidden;
 
     &.secondary {
       background-color: var(--layout);
@@ -23,12 +24,68 @@
       width: 100%;
       max-width: 1100px;
     }
+
+    @media (max-width: 650px) {
+      padding: 30px 10px;
+    }
   }
 
   .hero {
-    h1 {
-      font-weight: bold;
-      font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 320px);
+    position: relative;
+
+    & > span {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+
+      h1 {
+        font-weight: bold;
+        font-size: 10rem;
+        margin-bottom: 15px;
+
+        span {
+          color: var(--accent);
+          text-transform: uppercase;
+          font-size: 7rem;
+        }
+      }
+
+      p {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 900px) {
+        h1 {
+          font-size: 7rem;
+
+          span {
+            font-size: 5rem;
+          }
+        }
+
+        p {
+          font-size: 2.3rem;
+        }
+      }
+
+      @media (max-width: 650px) {
+        h1 {
+          font-size: 3.5rem;
+
+          span {
+            font-size: 2.5rem;
+          }
+        }
+
+        p {
+          font-size: 1.1rem;
+        }
+      }
     }
   }
 
@@ -108,7 +165,6 @@
       }
 
       .facts {
-        font-family: Lato, Helvetica, sans-serif;
         display: inline;
         color: var(--accent);
         font-size: 2.2rem;
@@ -120,7 +176,6 @@
       }
 
       .helios {
-        font-family: Lato, Helvetica, sans-serif;
         display: inline;
         font-size: 3rem;
         text-transform: capitalize;
@@ -138,6 +193,7 @@
       display: flex;
       margin-bottom: 80px;
       width: 100%;
+
       @media (max-width: 650px) {
         flex-direction: column;
         margin-bottom: 50px;
@@ -152,6 +208,7 @@
           Roboto Slab,
           serif;
         padding-right: 50px;
+
         @media (max-width: 650px) {
           width: 100%;
           margin-bottom: 10px;
@@ -163,8 +220,14 @@
         font-size: 1rem;
         font-weight: 300;
         line-height: 1.5rem;
+
         @media (max-width: 650px) {
           width: 100%;
+        }
+
+        a {
+          color: var(--accent);
+          text-decoration: underline;
         }
       }
     }

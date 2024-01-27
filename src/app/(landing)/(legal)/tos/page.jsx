@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from '../LegalLayout.module.scss';
 
-export const metadata = { title: 'Terms of Service' };
+export const metadata = { title: 'Helios | Terms of Service' };
 
 export default function Page() {
   return (
@@ -28,10 +28,8 @@ export default function Page() {
         <p>
           Using Helios in any way means that you agree to all of these Terms, and these Terms will remain in effect
           while you use Helios. These Terms include everything in this document, as well as those in the{' '}
-          <Link href='/privacy'>Privacy Policy</Link>, <Link href='/publisher_agreement'>Publisher Agreement</Link>,{' '}
-          <Link href='/content_guidelines'>Content Guidelines</Link>, and{' '}
-          <Link href='/dispute'>Copyright Dispute Policy</Link>. If you don&lsquo;t agree to all of the following, you
-          may not use or access Helios in any manner.
+          <Link href='/privacy'>Privacy Policy</Link>. If you don&lsquo;t agree to all of the following, you may not use
+          or access Helios in any manner.
         </p>
 
         <p>
@@ -136,12 +134,6 @@ export default function Page() {
           alleged to be infringing, and to terminate the accounts of repeat alleged infringers. You promise to abide by
           copyright notices, trademark rules, information, and other restrictions you may receive from us or that are
           posted on Helios.
-        </p>
-
-        <p>
-          To review our complete Copyright Dispute Policy and learn how to report potentially infringing content, click{' '}
-          <Link href='/dispute'>here</Link>. To learn more about the Digital Millennium Copyright Act, which governs how
-          we handle these reports, click <Link href='https://www.copyright.gov/legislation/dmca.pdf'>here</Link>.
         </p>
 
         <p>

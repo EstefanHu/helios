@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from '../LegalLayout.module.scss';
 
-export const metadata = { title: 'Privacy Policy' };
+export const metadata = { title: 'Helios | Privacy Policy' };
 
 export default function Page() {
   return (

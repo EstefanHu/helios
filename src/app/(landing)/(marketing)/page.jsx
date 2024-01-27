@@ -7,48 +7,36 @@ export const metadata = {
   keywords: ['Journal', 'Write', 'Mindfulness'],
 };
 
-const FAQ_BULLETS = [
-  {
-    header: 'What is :Helios?',
-    content:
-      ':Helios is a collaborative storytelling platform that allows writers to develop the habit of writing and telling their stories. Our no tech solution removes the hassles of the internet so you can focus on telling your stories to the world!',
-  },
-  {
-    header: 'Who can see what I write?',
-    content:
-      'Everything, by default, is encrypted and private. This is to ensure that you stay unimpeded while writing your first drafts. Then, if you want to, share your work to the your community for feedback and reviews.',
-  },
-  {
-    header: 'Who owns what I write?',
-    content:
-      'You do! Everything you create, everything you write will always remain yours. We make it easy for you to create stories and communities that belong to you.',
-  },
-  {
-    header: 'Why daily entries?',
-    content:
-      'Many authors evangelize the benifits of a regular writing habit for their craft and their health. For further insight you can read about Julia Cameron and Morning Pages.',
-  },
-];
-
 export default function Marketing() {
   return (
     <div className={styles.wrapper}>
       <section>
         <div className={styles.hero}>
-          <h1>prjkt:Helios</h1>
-          <p>a guided journaling experience</p>
+          <span>
+            <h1>
+              <span>prjkt</span>:Helios
+            </h1>
+            <p>A guided journaling experience</p>
+          </span>
         </div>
       </section>
 
+      {/* TODO: Add socket to monitor written words */}
       <section className={styles.secondary}>
+        <div className={styles.proof}></div>
+      </section>
+
+      <section>
         <div className={styles.details}>
           <h1>Ever wished that your journal grew with you?</h1>
         </div>
       </section>
 
-      <section className={styles.offer}></section>
-
       <section className={styles.tertiary}>
+        <div className={styles.offer}></div>
+      </section>
+
+      <section>
         <div className={styles.quote}>
           <p>&quot;Preserve your memories, keep them well, what you forget you can never retell.&quot;</p>
 
@@ -65,19 +53,59 @@ export default function Marketing() {
             <h2 className={styles.helios}>:Helios</h2>
           </span>
 
-          {FAQ_BULLETS.map(({ header, content }) => (
-            <div key={header} className={styles.bullet}>
-              <h3>{header}</h3>
-              <p>{content}</p>
-            </div>
-          ))}
+          <div className={styles.bullet}>
+            <h3>What is :Helios?</h3>
+            <p>
+              Helios is an assisted journaling experience that empowers you to consistently write, reflect, and draw
+              insights about your daily experience. By leveraging the power of the internet you gain the ability to
+              control and contribute to your own personal <Link href='/roadmap#archive'>archive</Link>.
+            </p>
+          </div>
+
+          <div className={styles.bullet}>
+            <h3>Who controls my Entries?</h3>
+            <p>
+              Everything you create, you own. While we do encrypt everything by default, if at any time you decide you
+              want to completely clean out your digital footprint from :Helios you can. With our{' '}
+              <Link href='/roadmap#farewall'>farewell protocall</Link> you will be able to evict your data from :Helios
+              servers and download your entries for your safekeeping.
+            </p>
+          </div>
+
+          <div className={styles.bullet}>
+            <h3>How much does it cost?</h3>
+            <p>
+              Helios is a free to use service with paid an upgradable feature list. We are, however, a fully self funded
+              passion project and will only be able to keep our doors open for as long as we keep making a positive
+              impact on our community. If you wish to see this project continue, consider supporting us by spreading the
+              word.
+            </p>
+          </div>
+
+          <div className={styles.bullet}>
+            <h3>Can I contribute?</h3>
+            <p>
+              Of course! We have a list of open roles <Link href='/careers'>here</Link>. If you are looking to
+              contribute in a capacity that isn’t listed, feel free to contact us regarding contributions. Looking to
+              support us financially? You can do so through our <Link href='/support'>support</Link> page!
+            </p>
+          </div>
+
+          <div className={styles.bullet}>
+            <h3>What&apos;s next?</h3>
+            <p>
+              Oh so much! For the time being, :Helios is being developed by a handful of passionate seekers to learn
+              more about the team) in our free time but we have drafted a wish list of features and possible timelines
+              here. If you would like to learn more about our team checkout our <Link href='/about'>about</Link> page.
+            </p>
+          </div>
         </div>
       </section>
 
       <section>
         <div className={styles.cta}>
-          <h1>begin your journey</h1>
-          <Link href='/start'>start</Link>
+          <h1>your journey awaits</h1>
+          <Link href='/start'>begin</Link>
         </div>
       </section>
     </div>
