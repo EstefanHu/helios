@@ -17,9 +17,9 @@ export default async function Page({ params }) {
 
   return (
     <section className={styles.viewerContainer}>
-      <section className={styles.viewerDetails}>
+      <div className={styles.viewerDetails}>
         <div className={styles.createdTimeDate}>
-          <span className={styles.date}>
+          <span>
             {entry.created_at.toLocaleDateString('en-us', {
               weekday: 'long',
               year: 'numeric',
@@ -27,7 +27,7 @@ export default async function Page({ params }) {
               day: 'numeric',
             })}
           </span>
-          |<span className={styles.date}>{entry.created_at.toLocaleTimeString('en-us', { timeStyle: 'short' })}</span>
+          |<span>{entry.created_at.toLocaleTimeString('en-us', { timeStyle: 'short' })}</span>
         </div>
         <div className={styles.edit}>
           <button className={styles.editButton}>edit</button>
@@ -35,15 +35,15 @@ export default async function Page({ params }) {
             last edited {entry.updated_at.toLocaleDateString('en-us', { month: 'short', day: 'numeric' })}
           </span>
         </div>
-      </section>
+      </div>
 
-      <section className={styles.viewerHeader}>
+      <div className={styles.viewerHeader}>
         <h1 className={styles.title}>{entry.title}</h1>
-      </section>
+      </div>
 
-      <section className={styles.body}>
+      <div className={styles.body}>
         <p>{entry.body}</p>
-      </section>
+      </div>
     </section>
   );
 }
