@@ -1,6 +1,7 @@
 import { getEntry } from '@/app/actions/entries.js';
 import { getEntries } from '@/app/actions/entries.js';
-import styles from './viewer.module.scss';
+import viewer from './viewer.module.scss';
+import layout from '../../layout.module.scss'
 
 export async function generateStaticParams() {
   // TODO: replace user id
@@ -16,9 +17,9 @@ export default async function Page({ params }) {
   const entry = entryResponse[0];
 
   return (
-    <section className={styles.viewerContainer}>
-      <div className={styles.viewerDetails}>
-        <div className={styles.createdTimeDate}>
+    <section className={viewer.viewerContainer}>
+      <div className={viewer.viewerDetails}>
+        <div className={viewer.createdTimeDate}>
           <span>
             {entry.created_at.toLocaleDateString('en-us', {
               weekday: 'long',
@@ -29,19 +30,19 @@ export default async function Page({ params }) {
           </span>
           |<span>{entry.created_at.toLocaleTimeString('en-us', { timeStyle: 'short' })}</span>
         </div>
-        <div className={styles.edit}>
-          <button className={styles.editButton}>edit</button>
-          <span className={styles.editedText}>
+        <div className={viewer.edit}>
+          <button className={viewer.editButton}>edit</button>
+          <span className={layout.italicLight}>
             last edited {entry.updated_at.toLocaleDateString('en-us', { month: 'short', day: 'numeric' })}
           </span>
         </div>
       </div>
 
-      <div className={styles.viewerHeader}>
-        <h1 className={styles.title}>{entry.title}</h1>
+      <div className={viewer.viewerHeader}>
+        <h1 className={layout.title}>{entry.title}</h1>
       </div>
 
-      <div className={styles.body}>
+      <div className={layout.bodyText}>
         <p>{entry.body}</p>
       </div>
     </section>

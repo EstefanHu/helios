@@ -2,15 +2,6 @@
   margin-bottom: 1rem;
 }
 
-.title {
-  font-size: 2.5rem;
-}
-
-.body {
-  color: var(--textLighter);
-  line-height: 1.75;
-}
-
 .viewerDetails {
   margin-bottom: 2rem;
   display: flex;
@@ -37,10 +28,4 @@
     text-transform: capitalize;
   }
 
-  .editedText {
-    opacity: 0.75;
-    font-style: italic;
-    font-size: 0.9rem;
-    color: var(--textLighter);
-  }
 }
