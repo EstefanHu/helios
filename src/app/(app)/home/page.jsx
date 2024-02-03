@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import EntryListItem from './EntryListItem';
 import EntryMonthWrapper from './EntryMonthWrapper';
-import SearchFilterContainer from './SearchFilterContainer';
 import styles from './home.module.scss';
 import { getEntries, getEntryCount } from '@/app/actions/entries.js';
 
@@ -49,7 +48,6 @@ export default function Home() {
   const entryMonths = [...monthSet];
   return (
     <div className={styles.homeContainer}>
-      <SearchFilterContainer />
       <div className={styles.entryListContainer}>
         {entryMonths.map((month) => {
           const filteredEntriesByMonth = entryList.filter(
