@@ -28,23 +28,17 @@ export default async function Page({ params }) {
               day: 'numeric',
             })}
           </span>
-          |<span>{entry.created_at.toLocaleTimeString('en-us', { timeStyle: 'short' })}</span>
+          <span>{entry.created_at.toLocaleTimeString('en-us', { timeStyle: 'short' })}</span>
         </div>
-        <div className={viewer.edit}>
-          <button className={viewer.editButton}>edit</button>
+        <div className={viewer.editGroup}>
+          <button>edit</button>
           <span className={layout.italicLight}>
             last edited {entry.updated_at.toLocaleDateString('en-us', { month: 'short', day: 'numeric' })}
           </span>
         </div>
       </div>
-
-      <div className={viewer.viewerHeader}>
-        <h1 className={layout.title}>{entry.title}</h1>
-      </div>
-
-      <div className={layout.bodyText}>
-        <p>{entry.body}</p>
-      </div>
+      <h1 className={layout.title}>{entry.title}</h1>
+      <p className={layout.bodyText}>{entry.body}</p>
     </section>
   );
 }
