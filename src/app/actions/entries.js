@@ -3,11 +3,11 @@
 import { connectToDatabase } from '@/lib/config/postgres.js';
 const { pool } = connectToDatabase();
 
-export async function getEntries(userId) {
+export async function getEntries(userId, limit, offset) {
   const client = await pool.connect();
-  const query = 'SELECT * FROM entry WHERE seeker_id = $1 ORDER BY created_at DESC';
+  const query = 'SELECT * FROM entry WHERE seeker_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3';
   try {
-    const res = await client.query(query, [userId]);
+    const res = await client.query(query, [userId, limit, offset]);
 
     return res.rows;
   } catch (error) {
