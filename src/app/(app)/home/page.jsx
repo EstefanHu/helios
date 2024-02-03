@@ -9,17 +9,21 @@ import { getEntries, getEntryCount } from '@/app/actions/entries.js';
 export default function Home() {
   const [entryList, setEntryList] = useState([]);
   const [totalEntries, setTotalEntries] = useState(0);
-  const [offset, setOffset] = useState(0);
-  const limit = 6;
+  
+  // offset tracks how many rows to skip over when fetching
+  const [offset, setOffset] = useState(0); 
+  // limit is the # of entries to fetch at a time
+  const limit = 10; 
 
   useEffect(() => {
-    getEntryCount().then(res => setTotalEntries(res.count))
+    getEntryCount()
+      .then(res => setTotalEntries(res.count))
+      .catch(err => console.error(err)); 
   }, [])
 
   useEffect(() => {
   // TODO: get actual user id
     const userId = 1;
-
     getEntries(userId, limit, offset)
       .then(entries => {
         // if check is for avoiding concat on initial render,
@@ -30,7 +34,7 @@ export default function Home() {
           setEntryList((prev) => prev.concat(entries))
         }
       })
-      .catch(err => console.error(err)); 
+      .catch(err => console.error(err))
   }, [offset])
  
   function fetchMoreEntries() {
@@ -43,7 +47,6 @@ export default function Home() {
   const monthSet = new Set();
   entryList.forEach((entry) => monthSet.add(entry.created_at.toLocaleString('default', { month: 'long' })));
   const entryMonths = [...monthSet];
-
   return (
     <div className={styles.homeContainer}>
       <SearchFilterContainer />
@@ -61,8 +64,10 @@ export default function Home() {
             </EntryMonthWrapper>
           );
         })}
+        <div className={styles.centerContainer}>
+        {entryList.length < totalEntries && <button onClick={fetchMoreEntries}>Show more</button>}
+        </div>
       </div>
-      {entryList.length < totalEntries && <button onClick={fetchMoreEntries}>load more</button>}
     </div>
   );
 }
