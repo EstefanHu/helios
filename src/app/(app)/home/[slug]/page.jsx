@@ -1,7 +1,7 @@
 import { getEntry } from '@/app/actions/entries.js';
 import { getEntries } from '@/app/actions/entries.js';
 import viewer from './viewer.module.scss';
-import layout from '../../layout.module.scss'
+import layout from '../../layout.module.scss';
 
 export async function generateStaticParams() {
   // TODO: replace user id
