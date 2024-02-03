@@ -4,12 +4,17 @@ import EntryListItem from './EntryListItem';
 import EntryMonthWrapper from './EntryMonthWrapper';
 import SearchFilterContainer from './SearchFilterContainer';
 import styles from './home.module.scss';
-import { getEntries } from '@/app/actions/entries.js';
+import { getEntries, getEntryCount } from '@/app/actions/entries.js';
 
 export default function Home() {
   const [entryList, setEntryList] = useState([]);
+  const [totalEntries, setTotalEntries] = useState(0);
   const [offset, setOffset] = useState(0);
-  const limit = 3;
+  const limit = 6;
+
+  useEffect(() => {
+    getEntryCount().then(res => setTotalEntries(res.count))
+  }, [])
 
   useEffect(() => {
   // TODO: get actual user id
@@ -57,7 +62,7 @@ export default function Home() {
           );
         })}
       </div>
-      <button onClick={fetchMoreEntries}>load more</button>
+      {entryList.length < totalEntries && <button onClick={fetchMoreEntries}>load more</button>}
     </div>
   );
 }

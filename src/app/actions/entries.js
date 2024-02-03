@@ -21,8 +21,19 @@ export async function getEntry(slug) {
   const client = await pool.connect();
   try {
     const res = await client.query('SELECT * FROM entry WHERE slug = $1', [slug]);
-
     return res.rows;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    client.release();
+  }
+}
+
+export async function getEntryCount() {
+  const client = await pool.connect();
+  try {
+    const res = await client.query('SELECT count(*) FROM entry');
+    return res.rows[0];
   } catch (error) {
     console.log(error);
   } finally {
