@@ -152,3 +152,18 @@
   font-weight: bold;
   text-transform: capitalize;
 }
+
+.searchInput {
+  font-size: 1rem;
+  background-color: inherit;
+  width: 100%;
+  height: inherit;
+  padding: 0 20px;
+
+  input {
+    height: inherit;
+    width: 100%;
+    background-color: inherit;
+    outline: none;
+  }
+}

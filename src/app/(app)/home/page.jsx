@@ -1,6 +1,5 @@
 import EntryListItem from './EntryListItem';
 import EntryMonthWrapper from './EntryMonthWrapper';
-import SearchFilterContainer from './SearchFilterContainer';
 import styles from './home.module.scss';
 
 const mockEntries = [
@@ -83,7 +82,6 @@ export default function Home() {
 
   return (
     <div className={styles.homeContainer}>
-      <SearchFilterContainer />
       <div className={styles.entryListContainer}>
         {entryMonths.map((month) => {
           const filteredEntriesByMonth = reverseChronoEntries.filter(
