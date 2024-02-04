@@ -1,7 +1,7 @@
 'use client';
 import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
-import { SeekerContext } from '@/lib/helpers/ContextProvider.jsx';
+import { SeekerContext } from '@/app/(app)/ContextProvider.jsx';
 import styles from './Profile.module.scss';
 
 export default function Logout() {

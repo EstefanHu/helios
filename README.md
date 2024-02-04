@@ -46,4 +46,3 @@ When creating dummy seekers you can:
 
 1. Add local redis url for SESSIONS_URL (Default is redis://localhost:6379)
 2. Select a TTL (Time To Live) and set it to SESSIONS_TTL (Calculated in seconds)
-3. Toggle `DISABLE_SESSIONS` to false to use live redis data
