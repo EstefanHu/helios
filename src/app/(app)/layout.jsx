@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { cookies } from 'next/headers';
-import { AppNav, MobileAppNav, PageName } from './AppLayoutClientComponents';
+import { AppNav, MobileAppNav, PageName, SearchInput } from './AppLayoutClientComponents';
 import Deauth from './Deauth';
 
 import { connectToDatabase } from '@/lib/config/postgres.js';
@@ -22,6 +22,10 @@ export default async function AppLayout({ children }) {
       <main>
         <header>
           <PageName />
+
+          <search>
+            <SearchInput />
+          </search>
 
           <Link href='/write'>
             <p>write</p>

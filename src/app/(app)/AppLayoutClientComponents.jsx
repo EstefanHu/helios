@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 
@@ -7,6 +8,7 @@ import { BiSolidHomeHeart } from 'react-icons/bi';
 import { GiJourney, GiMirrorMirror } from 'react-icons/gi';
 import { MdPersonOutline } from 'react-icons/md';
 import { IoIosMore } from 'react-icons/io';
+import { IoLibrary } from 'react-icons/io5';
 
 import styles from './AppLayoutClientComponents.module.scss';
 
@@ -37,6 +39,11 @@ function AppNav() {
       <Link href='/reflect' className={`${styles.link} ${pathname.startsWith('/reflect') ? styles.selected : null}`}>
         <GiMirrorMirror />
         <p>reflect</p>
+      </Link>
+
+      <Link href='/archive' className={`${styles.link} ${pathname.startsWith('/archive') ? styles.selected : null}`}>
+        <IoLibrary />
+        <p>archive</p>
       </Link>
 
       <Link href='/profile' className={`${styles.link} ${pathname.startsWith('/profile') ? styles.selected : null}`}>
@@ -85,4 +92,24 @@ function PageName() {
   return <h1 className={styles.pageName}>{pageName}</h1>;
 }
 
-export { AppNav, MobileAppNav, PageName };
+function SearchInput() {
+  const router = useRouter();
+  const [input, setInput] = useState('');
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+
+    console.log(`Search: ${input}`);
+    setInput('');
+
+    router.push(`/search?s=${input}`);
+  };
+
+  return (
+    <form className={styles.searchInput} onSubmit={handleSearch} tabIndex='1'>
+      <input type='input' placeholder='Search' value={input} onChange={(e) => setInput(e.target.value)} />
+    </form>
+  );
+}
+
+export { AppNav, MobileAppNav, PageName, SearchInput };

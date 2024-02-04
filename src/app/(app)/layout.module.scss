@@ -42,6 +42,27 @@
       border-bottom: 1px solid var(--borderColor);
       padding: 0 20px;
 
+      search {
+        background-color: var(--backgroundAccent);
+        border: 2px solid var(--backgroundAccent);
+        border-radius: 20px;
+        margin: 0 auto;
+        height: 40px;
+        width: 100%;
+        max-width: 800px;
+        overflow: hidden;
+        transition: border 0.1s;
+        cursor: text;
+
+        &:hover {
+          border: 2px solid var(--backgroundAccentHover);
+        }
+
+        &:focus {
+          border: 2px solid var(--backgroundAccentHover);
+        }
+      }
+
       @media (max-width: 650px) {
         padding: 0 10px;
         height: 60px;
