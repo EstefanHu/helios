@@ -1,0 +1,33 @@
+.viewerContainer {
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  .viewerDetails {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .createdTimeDate {
+      flex-direction: row;
+      color: var(--accent);
+    }
+
+    .editGroup {
+      flex-direction: column;
+      align-items: flex-end;
+
+      button {
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

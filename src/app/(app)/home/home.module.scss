@@ -47,7 +47,7 @@
 .entryDayWrapper {
   display: flex;
   gap: 1rem;
-  align-items: center;
+  width: 100%;
 }
 
 .entryDayList {
@@ -56,22 +56,27 @@
   }
 }
 
-.entryListItem {
+.entryListItemContainer {
   background-color: var(--backgroundAccent);
   border-radius: var(--border-radius);
   padding: 1rem 2rem;
   transition: 0.25s background-color ease-in-out;
-  > * + * {
-    margin-top: 0.5rem;
-  }
+  width: 100%;
 }
 
-.entryListItem:hover {
+.entryListItemContainer:hover {
   background-color: var(--backgroundAccentHover);
   cursor: pointer;
 }
 
+.entryListItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .entryListItemTitle {
+  color: var(--text);
   font-size: 1.5rem;
 }
 
@@ -87,4 +92,17 @@
 .entryListItemTime {
   color: var(--textSecondary);
   font-size: 0.9rem;
+}
+
+.centerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    background: transparent;
+    text-transform: capitalize;
+    font-weight: 600;
+    cursor: pointer;
+  }
 }
