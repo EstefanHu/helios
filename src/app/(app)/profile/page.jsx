@@ -1,10 +1,8 @@
 import Logout from './Logout';
 import styles from './Profile.module.scss';
+import ProfileElement from './ProfileElement';
 
 export default function Profile() {
-  // TODO: grab seeker from context
-  const seeker = {};
-
   return (
     <div className={styles.profileWrapper}>
       <h2>settings</h2>
@@ -23,7 +21,17 @@ export default function Profile() {
       <h2>account</h2>
       <section>
         <div className={styles.profile}>
-          <p>name: {seeker.name}</p>
+          <p>
+            <span>traveler:</span> <ProfileElement property='firstname' /> <ProfileElement property='lastname' />
+          </p>
+
+          <p>
+            <span>email:</span> <ProfileElement property='emailaddress' />
+          </p>
+
+          <p>
+            <span>email confirmed:</span> <ProfileElement property='emailconfirmed' />
+          </p>
         </div>
 
         <div className={styles.account}>

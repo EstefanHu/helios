@@ -9,8 +9,6 @@ import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
 const { pool } = connectToDatabase();
 
 const setUserSession = async (userId) => {
-  if (process.env.DISABLE_SESSIONS === 'true') return 'supersecrettoken';
-
   const token = generateUUID();
   const key = `heliosUser:${token}`;
   const repeatedToken = await redis.exists(key);

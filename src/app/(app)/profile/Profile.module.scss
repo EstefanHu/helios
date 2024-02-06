@@ -15,6 +15,15 @@
     width: 100%;
     padding: 15px 20px;
     border-radius: 5px;
+
+    p {
+      margin-bottom: 10px;
+
+      span {
+        text-transform: capitalize;
+        font-weight: bold;
+      }
+    }
   }
 }
 
