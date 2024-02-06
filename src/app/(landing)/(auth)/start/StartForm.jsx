@@ -13,10 +13,7 @@ const DEFAULT_DATA = {
 export default function StartForm({ createSeeker }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    emailAddress: 'g.host@email.com',
-    password: 'password',
-  });
+  const [formData, setFormData] = useState(DEFAULT_DATA);
   const [errorData, setErrorData] = useState(DEFAULT_DATA);
 
   const handleStartRequest = async (e) => {

@@ -16,10 +16,9 @@ A Journaling app written in JavaScript using the Next.js framework. The purpose 
 3. install dependencies - `npm install`
 4. run developer server - `npm run dev`
 
-## Ghost User
+## Dummy seeker
 
-When creating dummy users you can:
-
+When creating dummy seekers you can:
 1. Seed data using `postgres::seed`
 2. Set `DUMMY_DATA` to true and fill in all `DUMMY` prefixed environment variables
 3. Manually connect and run `seeker` script from the seed directory

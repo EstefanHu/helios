@@ -6,6 +6,8 @@ import bcrypt from 'bcrypt';
 import { connectToDatabase } from '@/lib/config/postgres.js';
 const { pool } = connectToDatabase();
 
+export const metadata = { title: 'Begin Your Journey' };
+
 export default function page() {
   const createSeeker = async (emailAddress, password) => {
     'use server';

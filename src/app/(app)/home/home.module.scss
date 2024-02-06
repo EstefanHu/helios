@@ -3,43 +3,6 @@
   padding-bottom: 4rem;
 }
 
-// styles for top section, which includes
-// search bar, jump to date
-.searchFilterContainer {
-  position: sticky;
-  top: 0;
-  background-color: var(--background);
-  padding: 1rem 0;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-  z-index: 2;
-}
-
-.searchContainer {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background-color: var(--backgroundAccent);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  width: 100%;
-}
-
-.searchbar {
-  width: 100%;
-  background-color: transparent;
-}
-
-.jumpToDateBtn {
-  width: 8rem;
-  font-size: 0.9rem;
-  background-color: transparent;
-  cursor: pointer;
-}
-//
-
 .entryMonthHeader {
   color: var(--accent);
   font-weight: 600;
