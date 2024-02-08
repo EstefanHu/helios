@@ -90,6 +90,38 @@
   }
 
   .details {
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 120px;
+    }
+
+    article {
+      width: 100%;
+      margin-bottom: 100px;
+      display: flex;
+
+      div {
+        width: 50%;
+        padding: 0 10px;
+
+        h2 {
+          font-size: 1.5rem;
+          text-transform: capitalize;
+          margin-bottom: 10px;
+        }
+
+        p {
+          margin-bottom: 10px;
+        }
+
+        a {
+          color: var(--accent);
+          text-transform: capitalize;
+          font-size: 0.8rem;
+        }
+      }
+    }
   }
 
   .offer {

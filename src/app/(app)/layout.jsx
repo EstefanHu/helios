@@ -23,11 +23,11 @@ export default async function AppLayout({ children }) {
     const client = await pool.connect();
     try {
       const query = `SELECT id, firstName, lastName, emailAddress, emailConfirmed
-                  FROM seeker
+                  FROM traveler
                   WHERE id = '${userId}'`;
       const { rows } = await client.query(query);
 
-      return { code: 200, seeker: rows[0] };
+      return { code: 200, traveler: rows[0] };
     } catch (error) {
       return { error }, { status: 500 };
     } finally {

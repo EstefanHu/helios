@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from './marketing.module.scss';
 
 export const metadata = {
-  title: 'Helios - A guided journaling experience',
+  title: 'The Helios Project',
   description: 'Helios is an online tool for assisting in maintaining consistent mindfulness practices.',
   keywords: ['Journal', 'Write', 'Mindfulness'],
 };
@@ -16,21 +16,62 @@ export default function Marketing() {
             <h1>
               <span>prjkt</span>:Helios
             </h1>
-            <p>A guided journaling experience</p>
+            <p>the journal that grows with you</p>
           </span>
         </div>
       </section>
 
       {/* TODO: Add socket to monitor written words */}
       <section className={styles.secondary}>
-        <div className={styles.proof}></div>
-      </section>
-
-      <section>
         <div className={styles.details}>
-          <h1>Ever wished that your journal grew with you?</h1>
+          <h1>Life changes. So should your Journal.</h1>
+
+          <article>
+            <div>
+              <h2>create custom entries</h2>
+              <p>
+                Enrich your journaling experience by tagging, linking, and adding Marginalia to your entries. Focus your
+                sessions with topical directives or events. Associate resources, mark up your sentences, compose epic
+                logs! Or, you can just write.
+              </p>
+              <Link href='/start'>begin journey</Link>
+            </div>
+            <div></div>
+          </article>
+
+          <article>
+            <div></div>
+            <div>
+              <h2>gain meaningful insights</h2>
+              <p>
+                Reflect on previous entries. Make space to dive deep into your charged motives. Reference previous
+                accomplishments. And for complex challenges, start a journey.
+              </p>
+              <Link href='/start'>begin journey</Link>
+            </div>
+          </article>
+
+          <article>
+            <div>
+              <h2>dynamically alter your journaling style</h2>
+              <p></p>
+              <Link href='/start'>begin journey</Link>
+            </div>
+            <div></div>
+          </article>
+
+          <article>
+            <div></div>
+            <div>
+              <h2>export your archive anytime</h2>
+              <p></p>
+              <Link href='/start'>begin journey</Link>
+            </div>
+          </article>
         </div>
       </section>
+
+      <section></section>
 
       <section className={styles.tertiary}>
         <div className={styles.offer}></div>
@@ -94,7 +135,7 @@ export default function Marketing() {
           <div className={styles.bullet}>
             <h3>What&apos;s next?</h3>
             <p>
-              Oh so much! For the time being, :Helios is being developed by a handful of passionate seekers to learn
+              Oh so much! For the time being, :Helios is being developed by a handful of passionate travelers to learn
               more about the team) in our free time but we have drafted a wish list of features and possible timelines
               here. If you would like to learn more about our team checkout our <Link href='/about'>about</Link> page.
             </p>

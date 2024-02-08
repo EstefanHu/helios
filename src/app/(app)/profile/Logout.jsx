@@ -1,15 +1,15 @@
 'use client';
 import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
-import { SeekerContext } from '@/app/(app)/ContextProvider.jsx';
+import { TravelerContext } from '@/app/(app)/ContextProvider.jsx';
 import styles from './Profile.module.scss';
 
 export default function Logout() {
-  const { setSeeker } = useContext(SeekerContext);
+  const { setTraveler } = useContext(TravelerContext);
   const router = useRouter();
 
   const runLogout = async () => {
-    setSeeker(null);
+    setTraveler(null);
     await fetch('/auth', { method: 'DELETE' });
     router.push('/');
   };

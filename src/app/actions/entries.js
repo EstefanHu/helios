@@ -5,7 +5,7 @@ const { pool } = connectToDatabase();
 
 export async function getEntries(userId, limit, offset) {
   const client = await pool.connect();
-  const query = 'SELECT * FROM entry WHERE seeker_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3';
+  const query = 'SELECT * FROM entry WHERE traveler_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3';
   try {
     const res = await client.query(query, [userId, limit, offset]);
 

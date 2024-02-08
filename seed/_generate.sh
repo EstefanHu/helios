@@ -65,12 +65,12 @@ if $should_create_database; then
     echo -e "Creating database ${green}\`${db}\`${color_off}"
     psql -qc "CREATE DATABASE ${db}"
 
-    path_to_seeker="$(pwd)/seed/seeker.sql"
+    path_to_traveler="$(pwd)/seed/traveler.sql"
     path_to_entry="$(pwd)/seed/entry.sql"
-    chmod +x $path_to_seeker
+    chmod +x $path_to_traveler
     chmod +x $path_to_entry
     echo -e "Populating tables"
-    psql -U helios -d ${db} -q <$path_to_seeker
+    psql -U helios -d ${db} -q <$path_to_traveler
     psql -U helios -d ${db} -q <$path_to_entry
     echo -e
 fi

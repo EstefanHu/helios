@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS seeker (
+CREATE TABLE IF NOT EXISTS traveler (
     id SERIAL PRIMARY KEY,
     emailAddress VARCHAR(100) UNIQUE NOT NULL,
     emailConfirmed BOOLEAN DEFAULT FALSE,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS seeker (
 );
 
 INSERT INTO
-    seeker(emailAddress, firstName, lastName, password)
+    traveler(emailAddress, firstName, lastName, password)
 VALUES
     (
         'g.host@gmail.com',
@@ -20,7 +20,7 @@ VALUES
     );
 
 INSERT INTO
-    seeker(emailAddress, firstName, lastName, password)
+    traveler(emailAddress, firstName, lastName, password)
 VALUES
     (
         'your.mom@gmail.com',
@@ -30,7 +30,7 @@ VALUES
     );
 
 INSERT INTO
-    seeker(emailAddress, firstName, lastName, password)
+    traveler(emailAddress, firstName, lastName, password)
 VALUES
     (
         'estefanhu074@gmail.com',

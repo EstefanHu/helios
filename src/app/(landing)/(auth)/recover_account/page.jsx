@@ -14,11 +14,11 @@ export default function RecoverAccount() {
 
     try {
       const query = `SELECT id, emailAddress
-                    FROM seeker
+                    FROM traveler
                     WHERE emailAddress = '${emailAddress}'`;
       const { rows } = await client.query(query);
 
-      console.log({ seeker: rows[0] });
+      console.log({ traveler: rows[0] });
 
       return { code: 200 };
     } catch (error) {
