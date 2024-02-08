@@ -10,7 +10,7 @@ const DEFAULT_DATA = {
   password: '',
 };
 
-export default function StartForm({ createSeeker }) {
+export default function StartForm({ createTraveler }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState(DEFAULT_DATA);
@@ -33,8 +33,8 @@ export default function StartForm({ createSeeker }) {
 
     setIsLoading(true);
     try {
-      const createSeekerResponse = await createSeeker(emailAddress, password);
-      if (createSeekerResponse.code !== 201) throw { code: createSeekerResponse.code };
+      const createTravelerResponse = await createTraveler(emailAddress, password);
+      if (createTravelerResponse.code !== 201) throw { code: createTravelerResponse.code };
       const authenticateResponse = await (
         await fetch('/auth', {
           method: 'POST',

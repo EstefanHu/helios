@@ -4,12 +4,12 @@ CREATE TABLE IF NOT EXISTS entry (
 	body TEXT,
 	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 	updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-	seeker_id INT NOT NULL,
-	CONSTRAINT fk_seeker FOREIGN KEY(seeker_id) REFERENCES seeker(id)
+	traveler_id INT NOT NULL,
+	CONSTRAINT fk_traveler FOREIGN KEY(traveler_id) REFERENCES traveler(id)
 );
 
 INSERT INTO
-	entry (title, body, seeker_id)
+	entry (title, body, traveler_id)
 VALUES
 	(
 		'nam congue risus semper porta volutpat quam pede lobortis ligula sit amet',
@@ -24,7 +24,7 @@ Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non m
 	);
 
 INSERT INTO
-	entry (title, body, seeker_id)
+	entry (title, body, traveler_id)
 VALUES
 	(
 		'volutpat eleifend donec ut dolor morbi',
@@ -35,7 +35,7 @@ Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan fe
 	);
 
 INSERT INTO
-	entry (title, body, seeker_id)
+	entry (title, body, traveler_id)
 VALUES
 	(
 		'in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in',
@@ -44,7 +44,7 @@ VALUES
 	);
 
 INSERT INTO
-	entry (title, body, seeker_id)
+	entry (title, body, traveler_id)
 VALUES
 	(
 		'suspendisse potenti nullam porttitor lacus at turpis',
@@ -55,7 +55,7 @@ Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.',
 	);
 
 INSERT INTO
-	entry (title, body, seeker_id)
+	entry (title, body, traveler_id)
 VALUES
 	(
 		'auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet',
@@ -68,7 +68,7 @@ Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non
 	);
 
 INSERT INTO
-	entry (title, body, seeker_id)
+	entry (title, body, traveler_id)
 VALUES
 	(
 		'proin at turpis a pede posuere',
@@ -89,7 +89,7 @@ Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turp
 	);
 
 INSERT INTO
-	entry (title, body, seeker_id)
+	entry (title, body, traveler_id)
 VALUES
 	(
 		'sapien non mi integer ac neque duis bibendum morbi',
@@ -110,7 +110,7 @@ Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.',
 	);
 
 INSERT INTO
-	entry (title, body, seeker_id)
+	entry (title, body, traveler_id)
 VALUES
 	(
 		'augue a suscipit nulla elit ac nulla sed vel enim sit amet',
@@ -129,7 +129,7 @@ Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum pri
 	);
 
 INSERT INTO
-	entry (title, body, seeker_id)
+	entry (title, body, traveler_id)
 VALUES
 	(
 		'volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam',
@@ -142,7 +142,7 @@ Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.'
 	);
 
 INSERT INTO
-	entry (title, body, seeker_id)
+	entry (title, body, traveler_id)
 VALUES
 	(
 		'nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut',

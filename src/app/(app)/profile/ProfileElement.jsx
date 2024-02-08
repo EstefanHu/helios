@@ -1,6 +1,6 @@
 'use client';
 import { useContext } from 'react';
-import { SeekerContext } from '@/app/(app)/ContextProvider.jsx';
+import { TravelerContext } from '@/app/(app)/ContextProvider.jsx';
 
 const DEFAULTS = {
   firstname: 'Far',
@@ -8,7 +8,7 @@ const DEFAULTS = {
 };
 
 export default function ProfileElement({ property }) {
-  const { seeker } = useContext(SeekerContext);
+  const { traveler } = useContext(TravelerContext);
 
-  return <>{seeker ? seeker[property] : DEFAULTS[property]}</>;
+  return <>{traveler ? traveler[property] : DEFAULTS[property]}</>;
 }
