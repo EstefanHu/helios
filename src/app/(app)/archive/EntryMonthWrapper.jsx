@@ -1,5 +1,5 @@
 'use client';
-import styles from './home.module.scss';
+import styles from './Archive.module.scss';
 
 export default function EntryMonthWrapper({ children, month }) {
   return (

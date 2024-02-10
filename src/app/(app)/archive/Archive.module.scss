@@ -1,2 +1,108 @@
-.archiveWrapper {
+.archiveContainer {
+  position: relative;
+  padding-bottom: 4rem;
+}
+
+.entryMonthHeader {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  background: var(--background);
+  padding: 1rem;
+}
+
+.entryListContainer {
+  // applies spacing to any child that has something above it
+  > * + * {
+    margin-top: 2.5rem;
+  }
+}
+
+.dateBox {
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 0 0 5rem;
+}
+
+.dateBoxNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.dateBoxWeekday {
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  letter-spacing: 0.25ch;
+}
+
+.entryDayWrapper {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.entryDayList {
+  > * + * {
+    margin-top: 1rem;
+  }
+}
+
+.entryListItemContainer {
+  background-color: var(--backgroundAccent);
+  border-radius: var(--border-radius);
+  padding: 1rem 2rem;
+  transition: 0.25s background-color ease-in-out;
+  width: 100%;
+}
+
+.entryListItemContainer:hover {
+  background-color: var(--backgroundAccentHover);
+  cursor: pointer;
+}
+
+.entryListItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.entryListItemTitle {
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+.entryListItemBody {
+  color: var(--textLighter);
+  line-height: 150%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.entryListItemTime {
+  color: var(--textSecondary);
+  font-size: 0.9rem;
+}
+
+.centerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    background: transparent;
+    text-transform: capitalize;
+    font-weight: 600;
+    cursor: pointer;
+  }
 }

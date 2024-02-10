@@ -1,6 +1,6 @@
 'use client';
-import styles from './home.module.scss';
 import Link from 'next/link';
+import styles from './Archive.module.scss';
 
 export default function EntryListItem({ entry }) {
   return (
