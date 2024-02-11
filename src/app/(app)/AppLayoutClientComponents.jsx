@@ -20,6 +20,10 @@ function AppNav() {
     console.log('open menu');
   };
 
+  const toggleSize = () => {
+    console.log('toggle size');
+  };
+
   return (
     <>
       <Link href='/' className={styles.logo}>
@@ -55,8 +59,8 @@ function AppNav() {
         <IoIosMore />
       </button>
 
-      <button type='button' onClick={() => router.push('/write')} className={styles.write}>
-        <p>write entry</p>
+      <button type='button' onClick={toggleSize} className={styles.toggle}>
+        <p>T</p>
       </button>
     </>
   );

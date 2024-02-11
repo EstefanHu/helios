@@ -1,12 +1,32 @@
-CREATE TABLE IF NOT EXISTS entry (
-	id SERIAL NOT NULL PRIMARY KEY,
-	title VARCHAR(255),
-	body TEXT,
-	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-	updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-	traveler_id INT NOT NULL,
-	CONSTRAINT fk_traveler FOREIGN KEY(traveler_id) REFERENCES traveler(id)
-);
+INSERT INTO
+    traveler(emailAddress, firstName, lastName, password)
+VALUES
+    (
+        'g.host@gmail.com',
+        'Gary',
+        'Host',
+        '$2b$10$RkQSoUqiyHCvQ06/Ak7mEeBm0zFKtA2ucWRf9AvrU2Fe50fOXo5bi'
+    );
+
+INSERT INTO
+    traveler(emailAddress, firstName, lastName, password)
+VALUES
+    (
+        'your.mom@gmail.com',
+        'Your',
+        'Mom',
+        '$2b$10$RkQSoUqiyHCvQ06/Ak7mEeBm0zFKtA2ucWRf9AvrU2Fe50fOXo5bi'
+    );
+
+INSERT INTO
+    traveler(emailAddress, firstName, lastName, password)
+VALUES
+    (
+        'estefanhu074@gmail.com',
+        'estefan',
+        'hu',
+        '$2b$10$RkQSoUqiyHCvQ06/Ak7mEeBm0zFKtA2ucWRf9AvrU2Fe50fOXo5bi'
+    );
 
 INSERT INTO
 	entry (title, body, traveler_id)

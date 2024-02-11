@@ -11,19 +11,10 @@ A Journaling app written in JavaScript using the Next.js framework. The purpose 
 
 ## Setup
 
-1. copy enviornment variables - `cp env.example env.local`
+1. copy enviornment variables - `cp .env.example .env.local`
 2. check and use correct Node version - `nvm install && nvm use`
 3. install dependencies - `npm install`
 4. run developer server - `npm run dev`
-
-## Dummy traveler
-
-When creating dummy travelers you can:
-1. Seed data using `postgres::seed`
-2. Set `DUMMY_DATA` to true and fill in all `DUMMY` prefixed environment variables
-3. Manually connect and run `traveler` script from the seed directory
-
-## Postgresql
 
 ### Seed data
 

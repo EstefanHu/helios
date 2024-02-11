@@ -1,12 +1,12 @@
 'use client';
 import { createContext, useEffect, useState } from 'react';
 
-export const ThemeContext = createContext('light');
+export const LayoutContext = createContext({});
 export const TravelerContext = createContext(null);
 export const EntryContext = createContext([]);
 
 export function ContextProvider({ children, getCurrentSession }) {
-  const [theme, setTheme] = useState('light');
+  const [layout, setLayout] = useState({});
   const [traveler, setTraveler] = useState(null);
   const [entries, setEntries] = useState([]);
 
@@ -14,13 +14,13 @@ export function ContextProvider({ children, getCurrentSession }) {
     getCurrentSession().then((data) => {
       setTraveler(data.traveler);
     });
-  }, [setTraveler]);
+  }, [getCurrentSession, setTraveler]);
 
   return (
-    <ThemeContext.Provider value={theme}>
+    <LayoutContext.Provider value={{ layout, setLayout }}>
       <TravelerContext.Provider value={{ traveler, setTraveler }}>
-        <EntryContext.Provider value={[]}>{children}</EntryContext.Provider>
+        <EntryContext.Provider value={{ entries, setEntries }}>{children}</EntryContext.Provider>
       </TravelerContext.Provider>
-    </ThemeContext.Provider>
+    </LayoutContext.Provider>
   );
 }
