@@ -16,7 +16,7 @@ export default function page() {
 
     try {
       const hashedPassword = await bcrypt.hash(password, 10);
-      await client.query('INSERT INTO traveler(emailAddress, password) VALUES ($1, $2) RETURNING id;', [
+      await client.query('INSERT INTO traveler(email_address, password) VALUES ($1, $2) RETURNING id;', [
         emailAddress,
         hashedPassword,
       ]);

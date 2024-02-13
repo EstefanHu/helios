@@ -22,7 +22,7 @@ export default async function AppLayout({ children }) {
 
     const client = await pool.connect();
     try {
-      const query = `SELECT id, firstName, lastName, emailAddress, emailConfirmed
+      const query = `SELECT id, first_name, last_name, email_address, email_confirmed
                   FROM traveler
                   WHERE id = '${userId}'`;
       const { rows } = await client.query(query);
