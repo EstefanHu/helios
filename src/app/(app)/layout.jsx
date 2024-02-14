@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { AppNav, MobileAppNav, PageName, SearchInput } from './AppLayoutClientComponents';
 import { ContextProvider } from './ContextProvider.jsx';
 import Deauth from './Deauth';
+import { MdPersonOutline } from 'react-icons/md';
 import styles from './layout.module.scss';
 
 import redis from '@/lib/config/redis.js';
@@ -22,9 +23,20 @@ export default async function AppLayout({ children }) {
 
     const client = await pool.connect();
     try {
-      const query = `SELECT id, first_name, last_name, email_address, email_confirmed
-                  FROM traveler
-                  WHERE id = '${userId}'`;
+      const query = `
+                      SELECT
+                        traveler.id AS "travelerId",
+                        traveler.first_name AS "firstName",
+                        traveler.last_name AS "lastName",
+                        traveler.email_address AS "emailAddress",
+                        traveler.email_confirmed AS "emailConfirmed", 
+                        settings.is_dark AS "isDark", 
+                        settings.font_family AS "fontFamily"
+                      FROM traveler
+                      INNER JOIN settings
+                      ON traveler.id = settings.traveler_id
+                      WHERE traveler.id = '${userId}';
+                    `;
       const { rows } = await client.query(query);
 
       return { code: 200, traveler: rows[0] };
@@ -50,8 +62,8 @@ export default async function AppLayout({ children }) {
               <SearchInput />
             </div>
 
-            <Link href='/write'>
-              <p>write</p>
+            <Link href='/profile'>
+              <MdPersonOutline />
             </Link>
           </header>
 

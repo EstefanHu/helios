@@ -79,16 +79,22 @@
       a {
         display: flex;
         align-items: center;
+        justify-content: center;
         background-color: var(--backgroundAccent);
         text-transform: capitalize;
         height: 40px;
-        padding: 0 20px;
+        width: 40px;
         border-radius: 20px;
         font-size: 0.9rem;
         font-weight: 600;
         color: var(--text);
         cursor: pointer;
         transition: background-color 0.2s;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
 
         &:hover {
           background-color: var(--backgroundAccentHover);
