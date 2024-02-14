@@ -12,6 +12,7 @@ export function ContextProvider({ children, getCurrentSession }) {
 
   useEffect(() => {
     getCurrentSession().then((data) => {
+      console.log('traveler', data.traveler)
       setTraveler(data.traveler);
     });
   }, [getCurrentSession, setTraveler]);
