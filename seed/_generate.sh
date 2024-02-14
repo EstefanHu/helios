@@ -66,14 +66,19 @@ if $should_create_database; then
     psql -qc "CREATE DATABASE ${db}"
 
     path_to_tables="$(pwd)/seed/tables.sql"
-    path_to_settings_trigger="$(pwd)/seed/settings_trigger.sql"
+    path_to_trigger_traveler="$(pwd)/seed/trigger_traveler.sql"
+    path_to_trigger_entry="$(pwd)/seed/trigger_entry.sql"
     path_to_populate="$(pwd)/seed/populate.sql"
     chmod +x $path_to_tables
-    chmod +x $path_to_settings_trigger
+    chmod +x $path_to_trigger_traveler
+    chmod +x $path_to_trigger_entry
     chmod +x $path_to_populate
-    echo -e "Populating tables"
+    echo -e "Adding Tables"
     psql -U helios -d ${db} -q <$path_to_tables
-    psql -U helios -d ${db} -q <$path_to_settings_trigger
+    echo -e "Setting Triggers"
+    psql -U helios -d ${db} -q <$path_to_trigger_traveler
+    psql -U helios -d ${db} -q <$path_to_trigger_entry
+    echo -e "Populating tables"
     psql -U helios -d ${db} -q <$path_to_populate
     echo -e
 fi

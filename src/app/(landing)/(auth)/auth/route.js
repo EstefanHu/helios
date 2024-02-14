@@ -26,7 +26,7 @@ export async function POST(req) {
   const client = await pool.connect();
 
   try {
-    const { rows } = await client.query(`SELECT * FROM traveler WHERE emailAddress = '${emailAddress}'`);
+    const { rows } = await client.query(`SELECT * FROM traveler WHERE email_address = '${emailAddress}'`);
     if (rows.length === 0) return new NextResponse(INVALID_REQUEST);
     const user = rows[0];
     if (!(await bcrypt.compare(password, user.password))) return new NextResponse(INVALID_REQUEST);
@@ -41,7 +41,9 @@ export async function POST(req) {
     });
   } catch (error) {
     return new NextResponse(SERVER_ERROR, {
-      headers: { 'Set-Cookie': 'heliosAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; Max-Age=0;' },
+      headers: {
+        'Set-Cookie': 'heliosAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Strict; Path=/; Max-Age=0;',
+      },
     });
   } finally {
     client.release();
@@ -76,6 +78,8 @@ export async function DELETE() {
   await redis.del(`heliosUser:${value}`);
 
   return new Response(SUCCESS, {
-    headers: { 'Set-Cookie': 'heliosAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; Max-Age=0;' },
+    headers: {
+      'Set-Cookie': 'heliosAuth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Strict; Path=/; Max-Age=0;',
+    },
   });
 }

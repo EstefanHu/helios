@@ -13,9 +13,9 @@ export default function RecoverAccount() {
     const client = await pool.connect();
 
     try {
-      const query = `SELECT id, emailAddress
+      const query = `SELECT id, email_address
                     FROM traveler
-                    WHERE emailAddress = '${emailAddress}'`;
+                    WHERE email_address = '${emailAddress}'`;
       const { rows } = await client.query(query);
 
       console.log({ traveler: rows[0] });
