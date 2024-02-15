@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useContext } from 'react';
-import { TravelerContext } from '@/app/(app)/ContextProvider.jsx';
+import { EntryContext, TravelerContext } from '@/app/(app)/ContextProvider.jsx';
 
 import EntryListItem from './EntryListItem';
 import EntryMonthWrapper from './EntryMonthWrapper';
@@ -11,12 +11,21 @@ import { getEntries, getEntryCount } from '@/app/actions/entries.js';
 export default function Home() {
   const [entryList, setEntryList] = useState([]);
   const [totalEntries, setTotalEntries] = useState(0);
-  const { traveler } = useContext(TravelerContext);
- 
+
+  const {traveler} = useContext(TravelerContext);
+  const [travelerId, setTravelerId] = useState(null)
+
   // offset tracks how many rows to skip over when fetching
   const [offset, setOffset] = useState(0);
   // limit is the # of entries to fetch at a time
   const limit = 10;
+
+  useEffect(() => {
+    // if the traveler value has loaded
+    if (traveler) {
+      setTravelerId(traveler.id)
+    }
+  }, [traveler])
 
   useEffect(() => {
     getEntryCount()
@@ -25,8 +34,8 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const userId = traveler.id;
-    getEntries(userId, limit, offset)
+    if (travelerId) { 
+    getEntries(travelerId, limit, offset)
       .then((entries) => {
         // if check is for avoiding concat on initial render,
         // which led to a duplicate entries bug
@@ -37,7 +46,8 @@ export default function Home() {
         }
       })
       .catch((err) => console.error(err));
-  }, [offset]);
+    }
+  }, [offset, travelerId]);
 
   function fetchMoreEntries() {
     // updating the offset triggers the useEffect

@@ -10,7 +10,7 @@ export default function EntryListItem({ entry }) {
         <p className={styles.dateBoxWeekday}>{entry.created_at.toLocaleString('default', { weekday: 'short' })}</p>
       </div>
       <div className={styles.entryListItemContainer}>
-        <Link href={`home/${entry.slug}`}>
+        <Link href={`archive/${entry.slug}`}>
           <div className={styles.entryListItem}>
             <p className={styles.entryListItemTime}>
               {Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric', hour12: true }).format(entry.created_at)}
