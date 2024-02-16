@@ -1,4 +1,5 @@
 import styles from './Home.module.scss';
+import HomeContent from './HomeContent';
 
 export const metadata = {
   title: 'Home | Helios',
@@ -8,7 +9,7 @@ export const metadata = {
 export default function Home() {
   return (
     <div className={styles.homeWrapper}>
-      <h1>Home</h1>
+      <HomeContent />
     </div>
   );
 }

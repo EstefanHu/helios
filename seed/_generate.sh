@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO: uuid support
-
 # https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
 purple='\033[1;35m'
 cyan='\033[1;36m'

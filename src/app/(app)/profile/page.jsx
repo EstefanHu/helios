@@ -22,15 +22,15 @@ export default function Profile() {
       <section>
         <div className={styles.profile}>
           <p>
-            <span>traveler:</span> <ProfileElement property='firstname' /> <ProfileElement property='lastname' />
+            <span>traveler:</span> <ProfileElement property='firstName' /> <ProfileElement property='lastName' />
           </p>
 
           <p>
-            <span>email:</span> <ProfileElement property='emailaddress' />
+            <span>email:</span> <ProfileElement property='emailAddress' />
           </p>
 
           <p>
-            <span>email confirmed:</span> <ProfileElement property='emailconfirmed' />
+            <span>email confirmed:</span> <ProfileElement property='emailConfirmed' />
           </p>
         </div>
 

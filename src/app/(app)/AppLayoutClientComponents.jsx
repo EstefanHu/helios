@@ -6,7 +6,6 @@ import { useRouter, usePathname } from 'next/navigation';
 import { HiSun } from 'react-icons/hi';
 import { BiSolidHomeHeart } from 'react-icons/bi';
 import { GiJourney, GiMirrorMirror } from 'react-icons/gi';
-import { MdPersonOutline } from 'react-icons/md';
 import { IoIosMore } from 'react-icons/io';
 import { IoLibrary } from 'react-icons/io5';
 
@@ -50,11 +49,6 @@ function AppNav() {
         <p>archive</p>
       </Link>
 
-      <Link href='/profile' className={`${styles.link} ${pathname.startsWith('/profile') ? styles.selected : null}`}>
-        <MdPersonOutline />
-        <p>profile</p>
-      </Link>
-
       <button type='button' onClick={openMenu} className={styles.more}>
         <IoIosMore />
       </button>
@@ -83,8 +77,8 @@ function MobileAppNav() {
         <GiMirrorMirror />
       </Link>
 
-      <Link href='/profile' className={pathname === '/profile' ? styles.selected : ''}>
-        <MdPersonOutline />
+      <Link href='/archive' className={pathname === '/archive' ? styles.selected : ''}>
+        <IoLibrary />
       </Link>
     </nav>
   );

@@ -83,7 +83,7 @@ export default function Marketing() {
 
           <h3>- Louisa May Alcott</h3>
 
-          <Link href='/register'>begin journey</Link>
+          <Link href='/start'>begin journey</Link>
         </div>
       </section>
 
