@@ -12,7 +12,6 @@ import { IoLibrary } from 'react-icons/io5';
 import styles from './AppLayoutClientComponents.module.scss';
 
 function AppNav() {
-  const router = useRouter();
   const pathname = usePathname();
 
   const openMenu = () => {

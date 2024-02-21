@@ -2,6 +2,7 @@
 import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
 import { TravelerContext } from '@/app/(app)/ContextProvider.jsx';
+import { logout } from '@/app/actions/auth.js';
 import styles from './Profile.module.scss';
 
 export default function Logout() {
@@ -10,7 +11,7 @@ export default function Logout() {
 
   const runLogout = async () => {
     setTraveler(null);
-    await fetch('/auth', { method: 'DELETE' });
+    logout();
     router.push('/');
   };
 

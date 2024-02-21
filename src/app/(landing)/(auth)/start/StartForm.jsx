@@ -1,17 +1,20 @@
 'use client';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import styles from '../authLayout.module.scss';
 import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
+import { register } from '@/app/actions/auth.js';
+import { TravelerContext } from '@/app/ContextProvider.jsx';
+import styles from '../authLayout.module.scss';
 
 const DEFAULT_DATA = {
   emailAddress: '',
   password: '',
 };
 
-export default function StartForm({ createTraveler }) {
+export default function StartForm() {
   const router = useRouter();
+  const { setTraveler } = useContext(TravelerContext);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState(DEFAULT_DATA);
   const [errorData, setErrorData] = useState(DEFAULT_DATA);
@@ -33,24 +36,13 @@ export default function StartForm({ createTraveler }) {
 
     setIsLoading(true);
     try {
-      const createTravelerResponse = await createTraveler(emailAddress, password);
+      const createTravelerResponse = await register(emailAddress, password);
       if (createTravelerResponse.code !== 201) throw { code: createTravelerResponse.code };
-      const authenticateResponse = await (
-        await fetch('/auth', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        })
-      ).json();
-      if (authenticateResponse.code !== 201) throw { code: authenticateResponse.code };
-
-      // TODO: route to onboarding
       router.push('/home');
     } catch ({ code }) {
       switch (code) {
+        case 400:
+          return setErrorData({ global: 'Submitted with missing field' });
         case 409:
           return setErrorData({ emailAddress: 'Email already in use', password: '' });
         default:

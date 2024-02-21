@@ -11,7 +11,7 @@ export const metadata = {
 export default async function Page({ params }) {
   const heliosAuth = cookies().get('heliosAuth')?.value;
   // if (!heliosAuth) return <Deauth />;
-  const userId = await redis.hget(`heliosUser:${heliosAuth}`, 'userId');
+  const userId = await redis.hget(`heliosTraveler:${heliosAuth}`, 'userId');
   // if (!userId) return <Deauth />;
   // check if user exists
   const entry = { id: '1', body: '' };

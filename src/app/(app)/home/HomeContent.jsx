@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useContext } from 'react';
-import { TravelerContext } from '../ContextProvider';
+import { TravelerContext } from '@/app/(app)/ContextProvider.jsx';
 import getHomeContent from '@/app/actions/getHomeContent.js';
 import styles from './Home.module.scss';
 

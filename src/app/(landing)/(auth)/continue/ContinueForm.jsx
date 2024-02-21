@@ -1,8 +1,10 @@
 'use client';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from '../authLayout.module.scss';
 import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
+import { login } from '@/app/actions/auth.js';
+import { TravelerContext } from '@/app/ContextProvider.jsx';
+import styles from '../authLayout.module.scss';
 
 const DEFAULT_DATA = {
   emailAddress: '',
@@ -11,6 +13,7 @@ const DEFAULT_DATA = {
 
 export default function ContinueForm() {
   const router = useRouter();
+  const { setTravler } = useContext(TravelerContext);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState(DEFAULT_DATA);
   const [errorData, setErrorData] = useState(DEFAULT_DATA);
@@ -31,15 +34,10 @@ export default function ContinueForm() {
     if (errors.password !== '' || errors.emailAddress !== '') return setErrorData(errors);
 
     setIsLoading(true);
-    const response = await fetch('/auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
-    const { code, message } = await response.json();
+    const { code, payload } = await login(emailAddress, password);
     setIsLoading(false);
 
-    if (code !== 201) return setErrorData({ emailAddress: message, password: message });
+    if (code !== 200) return setErrorData({ emailAddress: message, password: message });
 
     router.push('/home');
   };

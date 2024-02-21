@@ -10,7 +10,7 @@ const { pool } = connectToDatabase();
 
 const setUserSession = async (userId) => {
   const token = generateUUID();
-  const key = `heliosUser:${token}`;
+  const key = `heliosTraveler:${token}`;
   const repeatedToken = await redis.exists(key);
   if (repeatedToken === 1) return setUserSession(userId);
   await redis.hset(key, 'userId', userId);
@@ -50,32 +50,12 @@ export async function POST(req) {
   }
 }
 
-export async function GET(req) {
-  const sessionToken = 'noodles';
-
-  return new Response(SUCCESS, {
-    headers: {
-      'Set-Cookie': `heliosAuth=${sessionToken}; Max-Age=${
-        process.env.SESSIONS_TTL
-      }; SameSite=Strict; Path=/; HttpOnly ${process.env.NODE_ENV !== 'development' && '; Secure'}`,
-    },
-  });
-}
-
-export async function PATCH(req) {
-  return NextResponse.json({ data: 'PATCH' });
-}
-
-export async function PUT(req) {
-  return NextResponse.json({ data: 'PUT' });
-}
-
 export async function DELETE() {
   const cookieStore = cookies();
   const value = cookieStore.get('heliosAuth')?.value;
   if (!value) return new Response(BAD_REQUEST);
 
-  await redis.del(`heliosUser:${value}`);
+  await redis.del(`heliosTraveler:${value}`);
 
   return new Response(SUCCESS, {
     headers: {

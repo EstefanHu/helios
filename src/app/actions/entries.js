@@ -28,7 +28,6 @@ export async function getTodaysEntry() {
                       body,
                       created_at
                     FROM entry
-                    WHERE traveler_id = `${ }`;
                   `;
     const { rows } = await client.query(query);
 

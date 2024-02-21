@@ -7,8 +7,8 @@ const { pool } = connectToDatabase();
 export default async function getCurrentSession() {
   const heliosAuth = cookies().get('heliosAuth')?.value;
   if (!heliosAuth) return { code: 401 };
-  const userId = await redis.hget(`heliosUser:${heliosAuth}`, 'userId');
-  if (!userId) return { code: 440 };
+  const travelerId = await redis.hget(`heliosTraveler:${heliosAuth}`, 'travelerId');
+  if (!travelerId) return { code: 440 };
 
   const client = await pool.connect();
   try {
@@ -24,7 +24,7 @@ export default async function getCurrentSession() {
                       FROM traveler
                       INNER JOIN settings
                       ON traveler.id = settings.traveler_id
-                      WHERE traveler.id = '${userId}';
+                      WHERE traveler.id = '${travelerId}';
                     `;
     const { rows } = await client.query(query);
 

@@ -1,21 +1,14 @@
 'use client';
-import { createContext, useEffect, useState } from 'react';
-import getCurrentSession from '../actions/getCurrentSession.js';
+import { createContext, useState } from 'react';
 
 export const LayoutContext = createContext({});
 export const TravelerContext = createContext(null);
 export const EntryContext = createContext([]);
 
-export function ContextProvider({ children }) {
+export function ContextProvider({ children, currentSession }) {
   const [layout, setLayout] = useState({});
-  const [traveler, setTraveler] = useState(null);
+  const [traveler, setTraveler] = useState(currentSession);
   const [entries, setEntries] = useState([]);
-
-  useEffect(() => {
-    getCurrentSession().then((data) => {
-      setTraveler(data.traveler);
-    });
-  }, [setTraveler]);
 
   return (
     <LayoutContext.Provider value={{ layout, setLayout }}>
