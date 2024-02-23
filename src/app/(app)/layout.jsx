@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { cookies } from 'next/headers';
 import { AppNav, MobileAppNav, PageName, SearchInput } from './AppLayoutClientComponents';
-import { ContextProvider } from './ContextProvider.jsx';
 import Deauth from './Deauth';
 import { MdPersonOutline } from 'react-icons/md';
 import styles from './layout.module.scss';
@@ -11,32 +10,30 @@ export default async function AppLayout({ children }) {
   if (!heliosAuth) return <Deauth />;
 
   return (
-    <ContextProvider>
-      <div className={styles.wrapper}>
-        <nav className={styles.appNav}>
-          <AppNav />
-        </nav>
+    <div className={styles.wrapper}>
+      <nav className={styles.appNav}>
+        <AppNav />
+      </nav>
 
-        <main>
-          <header>
-            <PageName />
+      <main>
+        <header>
+          <PageName />
 
-            <div className={styles.search}>
-              <SearchInput />
-            </div>
-
-            <Link href='/profile'>
-              <MdPersonOutline />
-            </Link>
-          </header>
-
-          <div className={styles.contentWrapper}>
-            <div className={styles.content}>{children}</div>
+          <div className={styles.search}>
+            <SearchInput />
           </div>
-        </main>
 
-        <MobileAppNav />
-      </div>
-    </ContextProvider>
+          <Link href='/profile'>
+            <MdPersonOutline />
+          </Link>
+        </header>
+
+        <div className={styles.contentWrapper}>
+          <div className={styles.content}>{children}</div>
+        </div>
+      </main>
+
+      <MobileAppNav />
+    </div>
   );
 }

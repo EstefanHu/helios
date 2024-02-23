@@ -1,6 +1,6 @@
 'use client';
 import { useContext } from 'react';
-import { TravelerContext } from '@/app/(app)/ContextProvider.jsx';
+import { TravelerContext } from '@/app/ContextProvider.jsx';
 
 const DEFAULTS = {
   firstname: 'Far',

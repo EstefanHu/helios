@@ -1,7 +1,7 @@
 'use client';
 import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
-import { TravelerContext } from '@/app/(app)/ContextProvider.jsx';
+import { TravelerContext } from '@/app/ContextProvider.jsx';
 import styles from './Profile.module.scss';
 
 export default function Logout() {

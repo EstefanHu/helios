@@ -1,8 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import styles from '../authLayout.module.scss';
 import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
+import { continueJourney } from '@/app/actions/auth.js';
+import styles from '../authLayout.module.scss';
 
 const DEFAULT_DATA = {
   emailAddress: '',
@@ -31,15 +32,10 @@ export default function ContinueForm() {
     if (errors.password !== '' || errors.emailAddress !== '') return setErrorData(errors);
 
     setIsLoading(true);
-    const response = await fetch('/auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
-    const { code, message } = await response.json();
+    const continueJourneyResponse = await continueJourney(emailAddress, password);
     setIsLoading(false);
 
-    if (code !== 201) return setErrorData({ emailAddress: message, password: message });
+    if (continueJourneyResponse.code !== 200) return setErrorData({ emailAddress: message, password: message });
 
     router.push('/home');
   };

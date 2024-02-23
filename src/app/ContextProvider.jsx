@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useEffect, useState } from 'react';
-import getCurrentSession from '../actions/getCurrentSession.js';
+import getCurrentSession from './actions/getCurrentSession.js';
 
 export const LayoutContext = createContext({});
 export const TravelerContext = createContext(null);
@@ -12,6 +12,7 @@ export function ContextProvider({ children }) {
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
+    if (!document.cookie.includes('heliosAuth')) return;
     getCurrentSession().then((data) => {
       setTraveler(data.traveler);
     });
