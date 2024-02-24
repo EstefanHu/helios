@@ -75,7 +75,7 @@ export async function DELETE() {
   const value = cookieStore.get('heliosAuth')?.value;
   if (!value) return new Response(BAD_REQUEST);
 
-  await redis.del(`heliosUser:${value}`);
+  await redis.del(`heliosTraveler:${value}`);
 
   return new Response(SUCCESS, {
     headers: {

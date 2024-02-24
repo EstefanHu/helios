@@ -8,14 +8,13 @@ import redis from '@/lib/config/redis.js';
 import { connectToDatabase } from '@/lib/config/postgres.js';
 const { pool } = connectToDatabase();
 
-const setUserSession = async (userId) => {
+const setUserSession = async (travelerId) => {
   const token = generateUUID();
   const key = `heliosUser:${token}`;
   const repeatedToken = await redis.exists(key);
-  if (repeatedToken === 1) return setUserSession(userId);
-  await redis.hset(key, 'userId', userId);
+  if (repeatedToken === 1) return setUserSession(travelerId);
+  await redis.hset(key, 'travelerId', travelerId);
   await redis.expire(key, Number(process.env.SESSIONS_TTL));
-  console.log('setting cookie');
   cookies().set({
     name: 'heliosAuth',
     value: token,
