@@ -16,7 +16,7 @@ export async function getEntry(slug) {
   }
 }
 
-export async function getTodaysEntry() {
+export async function getTodaysEntry(travelerId) {
   const client = await pool.connect();
 
   try {
@@ -28,9 +28,8 @@ export async function getTodaysEntry() {
                       body,
                       created_at
                     FROM entry
-                    WHERE traveler_id = `${ }`;
-                  `;
-    const { rows } = await client.query(query);
+                    WHERE traveler_id = $1`;
+    const { rows } = await client.query(query, [travelerId]);
 
     return { code: 200, payload: rows[0] };
   } catch (error) {
@@ -40,11 +39,11 @@ export async function getTodaysEntry() {
   }
 }
 
-export async function getEntries(userId, limit, offset) {
+export async function getEntries(travelerId, limit, offset) {
   const client = await pool.connect();
   const query = 'SELECT * FROM entry WHERE traveler_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3';
   try {
-    const res = await client.query(query, [userId, limit, offset]);
+    const res = await client.query(query, [travelerId, limit, offset]);
 
     return res.rows;
   } catch (error) {
@@ -54,10 +53,10 @@ export async function getEntries(userId, limit, offset) {
   }
 }
 
-export async function getEntryCount() {
+export async function getEntryCount(travelerId) {
   const client = await pool.connect();
   try {
-    const res = await client.query('SELECT count(*) FROM entry');
+    const res = await client.query('SELECT count(*) FROM entry WHERE traveler_id = $1', [travelerId]);
 
     return res.rows[0];
   } catch (error) {
