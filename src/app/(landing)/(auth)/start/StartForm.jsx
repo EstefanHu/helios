@@ -1,10 +1,9 @@
 'use client';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ValidateEmailAddress } from '@/lib/helpers/validateEmailAddress.js';
 import { register } from '@/app/actions/auth.js';
-import { TravelerContext } from '@/app/ContextProvider.jsx';
 import styles from '../authLayout.module.scss';
 
 const DEFAULT_DATA = {
@@ -14,7 +13,6 @@ const DEFAULT_DATA = {
 
 export default function StartForm() {
   const router = useRouter();
-  const { setTraveler } = useContext(TravelerContext);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState(DEFAULT_DATA);
   const [errorData, setErrorData] = useState(DEFAULT_DATA);
