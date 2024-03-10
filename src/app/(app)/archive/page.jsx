@@ -5,6 +5,7 @@ import EntryMonthWrapper from './EntryMonthWrapper';
 import styles from './Archive.module.scss';
 import { getEntries, getEntryCount } from '@/app/actions/entries.js';
 import { TravelerContext } from '../ContextProvider';
+import { ring2 } from 'ldrs'
 
 export default function Home() {
   const [entryList, setEntryList] = useState([]);
@@ -16,6 +17,9 @@ export default function Home() {
   // limit is the # of entries to fetch at a time
   const limit = 5;
 
+  const [loading, setLoading] = useState(true);
+  ring2.register();
+  
   useEffect(() => {
     getEntryCount()
       .then((res) => setTotalEntries(res.count))
@@ -23,6 +27,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    setLoading(true);
     getEntries(traveler.travelerId, limit, offset)
       .then((res) => {
         // if check is for avoiding concat on initial render,
@@ -34,7 +39,8 @@ export default function Home() {
           setEntryList((prev) => prev.concat(entries));
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(()=>setLoading(false));
   }, [offset]);
 
   function fetchMoreEntries() {
@@ -64,8 +70,19 @@ export default function Home() {
             </EntryMonthWrapper>
           );
         })}
+        {loading && 
         <div className={styles.centerContainer}>
-          {entryList.length < totalEntries && <button onClick={fetchMoreEntries}>Show more</button>}
+          <l-ring-2
+          size="60"
+          stroke="5"
+          stroke-length="0.25"
+          bg-opacity="0.1"
+          speed="0.8" 
+          color="orange" 
+        ></l-ring-2>
+        </div>}
+        <div className={styles.centerContainer}>
+          {!loading && entryList.length < totalEntries && <button onClick={fetchMoreEntries}>Show more</button>}
         </div>
       </div>
     </div>
