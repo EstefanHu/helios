@@ -56,7 +56,7 @@ export default function Home() {
 
   return (
     <div className={styles.archiveContainer}>
-      <div className={styles.entryListContainer}>
+      <section>
         {entryMonths.map((month) => {
           const filteredEntriesByMonth = entryList.filter(
             (entry) => entry.created_at.toLocaleString('default', { month: 'long' }) === month
@@ -84,7 +84,7 @@ export default function Home() {
         <div className={styles.centerContainer}>
           {!loading && entryList.length < totalEntries && <button onClick={fetchMoreEntries}>Show more</button>}
         </div>
-      </div>
+      </section>
     </div>
   );
 }

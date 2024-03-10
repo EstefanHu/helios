@@ -9,17 +9,16 @@ export default function EntryListItem({ entry }) {
         <span>{entry.created_at.toLocaleString('default', { day: 'numeric' })}</span>
         <span>{entry.created_at.toLocaleString('default', { weekday: 'short' })}</span>
       </div>
-      <div className={styles.entryListItemContainer}>
-        <Link href={`home/${entry.slug}`}>
-          <div className={styles.entryListItem}>
-            <span>
-              {Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric', hour12: true }).format(entry.created_at)}
-            </span>
-            <h3>{entry.title}</h3>
-            <p>{entry.body}</p>
-          </div>
-        </Link>
-      </div>
+      <Link href={`home/${entry.slug}`}>
+        <div className={styles.preview}>
+          <span>
+            {Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric', hour12: true }).format(entry.created_at)}
+          </span>
+          <h3>{entry.title}</h3>
+          <p>{entry.body}</p>
+        </div>
+      </Link>
     </div>
+    
   );
 }
