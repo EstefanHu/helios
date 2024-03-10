@@ -39,13 +39,12 @@ export async function getTodaysEntry() {
   }
 }
 
-export async function getEntries(userId, limit, offset) {
+export async function getEntries(userId) {
   const client = await pool.connect();
-  const query = 'SELECT * FROM entry WHERE traveler_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3';
+  const query = 'SELECT * FROM entry WHERE traveler_id = $1 ORDER BY created_at DESC';
   try {
-    const res = await client.query(query, [userId, limit, offset]);
-
-    return res.rows;
+    const { rows } = await client.query(query, [userId]);
+    return { code: 200, entries: rows };
   } catch (error) {
     console.log(error);
   } finally {

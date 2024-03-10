@@ -1,13 +1,16 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import EntryListItem from './EntryListItem';
 import EntryMonthWrapper from './EntryMonthWrapper';
 import styles from './Archive.module.scss';
 import { getEntries, getEntryCount } from '@/app/actions/entries.js';
+import { TravelerContext } from '../ContextProvider';
 
 export default function Home() {
   const [entryList, setEntryList] = useState([]);
   const [totalEntries, setTotalEntries] = useState(0);
+  const { traveler } = useContext(TravelerContext);
+  console.log('travler', traveler);
 
   // offset tracks how many rows to skip over when fetching
   const [offset, setOffset] = useState(0);
@@ -22,11 +25,12 @@ export default function Home() {
 
   useEffect(() => {
     // TODO: get actual user id
-    const userId = 1;
-    getEntries(userId, limit, offset)
-      .then((entries) => {
+    getEntries(traveler.travelerId)
+      .then((res) => {
         // if check is for avoiding concat on initial render,
         // which led to a duplicate entries bug
+        console.log('ent', res)
+        const { entries } = res;
         if (offset === 0) {
           setEntryList(entries);
         } else {
