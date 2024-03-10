@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState, useContext } from 'react';
+import Link from 'next/link';
 import EntryListItem from './EntryListItem';
 import EntryMonthWrapper from './EntryMonthWrapper';
 import styles from './Archive.module.scss';
@@ -81,9 +82,11 @@ export default function Home() {
           color="orange" 
         ></l-ring-2>
         </div>}
-        <div className={styles.centerContainer}>
-          {!loading && entryList.length < totalEntries && <button onClick={fetchMoreEntries}>Show more</button>}
-        </div>
+        {!loading && <div className={styles.centerContainer}>
+          {!entryList.length ? <p>No entries yet. <Link href='/write'>Write your first!</Link></p> 
+          : entryList.length < totalEntries ? <button onClick={fetchMoreEntries}>Show more</button>
+          : <p className='italicLight'>You've reached the end.</p>}
+        </div>}
       </section>
     </div>
   );
