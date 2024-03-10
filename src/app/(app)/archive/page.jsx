@@ -10,12 +10,11 @@ export default function Home() {
   const [entryList, setEntryList] = useState([]);
   const [totalEntries, setTotalEntries] = useState(0);
   const { traveler } = useContext(TravelerContext);
-  console.log('travler', traveler);
 
   // offset tracks how many rows to skip over when fetching
   const [offset, setOffset] = useState(0);
   // limit is the # of entries to fetch at a time
-  const limit = 10;
+  const limit = 5;
 
   useEffect(() => {
     getEntryCount()
@@ -24,12 +23,10 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // TODO: get actual user id
-    getEntries(traveler.travelerId)
+    getEntries(traveler.travelerId, limit, offset)
       .then((res) => {
         // if check is for avoiding concat on initial render,
         // which led to a duplicate entries bug
-        console.log('ent', res)
         const { entries } = res;
         if (offset === 0) {
           setEntryList(entries);
