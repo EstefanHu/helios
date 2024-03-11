@@ -6,7 +6,7 @@ import EntryMonthWrapper from './EntryMonthWrapper';
 import styles from './Archive.module.scss';
 import { getEntries, getEntryCount } from '@/app/actions/entries.js';
 import { TravelerContext } from '../ContextProvider';
-import { ring2 } from 'ldrs';
+import { RotatingLines } from 'react-loader-spinner';
 
 export default function Home() {
   const [entryList, setEntryList] = useState([]);
@@ -19,7 +19,6 @@ export default function Home() {
   const limit = 5;
 
   const [loading, setLoading] = useState(true);
-  ring2.register(); // for loading
 
   useEffect(() => {
     getEntryCount()
@@ -73,7 +72,7 @@ export default function Home() {
         })}
         {loading && (
           <div className={styles.centerContainer}>
-            <l-ring-2 size='60' stroke='5' stroke-length='0.25' bg-opacity='0.1' speed='0.8' color='orange'></l-ring-2>
+            <RotatingLines strokeColor='#f3b04e' />
           </div>
         )}
         {!loading && (
