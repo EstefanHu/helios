@@ -19,7 +19,7 @@ export default function Home() {
   const limit = 5;
 
   const [loading, setLoading] = useState(true);
-  ring2.register();
+  ring2.register(); // for loading
   
   useEffect(() => {
     getEntryCount()

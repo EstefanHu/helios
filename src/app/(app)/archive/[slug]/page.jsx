@@ -2,14 +2,14 @@ import { getEntry } from '@/app/actions/entries.js';
 import { getEntries } from '@/app/actions/entries.js';
 import viewer from './viewer.module.scss';
 
-export async function generateStaticParams() {
-  // TODO: replace user id
-  const entries = await getEntries(1);
+// export async function generateStaticParams() {
+//   // TODO: replace user id
+//   const entries = await getEntries(1);
 
-  return entries.map((entry) => ({
-    slug: entry.slug,
-  }));
-}
+//   return entries.map((entry) => ({
+//     slug: entry.slug,
+//   }));
+// }
 
 export default async function Page({ params }) {
   const entryResponse = await getEntry(params.slug);
