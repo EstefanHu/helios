@@ -44,6 +44,7 @@ export async function getEntries(userId, limit, offset) {
   const query = 'SELECT * FROM entry WHERE traveler_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3';
   try {
     const { rows } = await client.query(query, [userId, limit, offset]);
+
     return { code: 200, entries: rows };
   } catch (error) {
     console.log(error);

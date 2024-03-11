@@ -6,7 +6,7 @@ import EntryMonthWrapper from './EntryMonthWrapper';
 import styles from './Archive.module.scss';
 import { getEntries, getEntryCount } from '@/app/actions/entries.js';
 import { TravelerContext } from '../ContextProvider';
-import { ring2 } from 'ldrs'
+import { ring2 } from 'ldrs';
 
 export default function Home() {
   const [entryList, setEntryList] = useState([]);
@@ -20,7 +20,7 @@ export default function Home() {
 
   const [loading, setLoading] = useState(true);
   ring2.register(); // for loading
-  
+
   useEffect(() => {
     getEntryCount()
       .then((res) => setTotalEntries(res.count))
@@ -41,8 +41,8 @@ export default function Home() {
         }
       })
       .catch((err) => console.error(err))
-      .finally(()=>setLoading(false));
-  }, [offset]);
+      .finally(() => setLoading(false));
+  }, [traveler, offset]);
 
   function fetchMoreEntries() {
     // updating the offset triggers the useEffect
@@ -71,22 +71,24 @@ export default function Home() {
             </EntryMonthWrapper>
           );
         })}
-        {loading && 
-        <div className={styles.centerContainer}>
-          <l-ring-2
-          size="60"
-          stroke="5"
-          stroke-length="0.25"
-          bg-opacity="0.1"
-          speed="0.8" 
-          color="orange" 
-        ></l-ring-2>
-        </div>}
-        {!loading && <div className={styles.centerContainer}>
-          {!entryList.length ? <p>No entries yet. <Link href='/write'>Write your first!</Link></p> 
-          : entryList.length < totalEntries ? <button onClick={fetchMoreEntries}>Show more</button>
-          : <p className='italicLight'>You've reached the end.</p>}
-        </div>}
+        {loading && (
+          <div className={styles.centerContainer}>
+            <l-ring-2 size='60' stroke='5' stroke-length='0.25' bg-opacity='0.1' speed='0.8' color='orange'></l-ring-2>
+          </div>
+        )}
+        {!loading && (
+          <div className={styles.centerContainer}>
+            {!entryList.length ? (
+              <p>
+                No entries yet. <Link href='/write'>Write your first!</Link>
+              </p>
+            ) : entryList.length < totalEntries ? (
+              <button onClick={fetchMoreEntries}>Show more</button>
+            ) : (
+              <p className='italicLight'>You&apos;ve reached the end.</p>
+            )}
+          </div>
+        )}
       </section>
     </div>
   );

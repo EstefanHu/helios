@@ -19,6 +19,5 @@ export default function EntryListItem({ entry }) {
         </div>
       </Link>
     </div>
-    
   );
 }
