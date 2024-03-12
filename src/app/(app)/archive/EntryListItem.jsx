@@ -6,23 +6,18 @@ export default function EntryListItem({ entry }) {
   return (
     <div className={styles.entryDayWrapper}>
       <div className={styles.dateBox}>
-        <p className={styles.dateBoxNumber}>{entry.created_at.toLocaleString('default', { day: 'numeric' })}</p>
-        <p className={styles.dateBoxWeekday}>{entry.created_at.toLocaleString('default', { weekday: 'short' })}</p>
+        <span>{entry.created_at.toLocaleString('default', { day: 'numeric' })}</span>
+        <span>{entry.created_at.toLocaleString('default', { weekday: 'short' })}</span>
       </div>
-      <div className={styles.entryListItemContainer}>
-        <Link href={`home/${entry.slug}`}>
-          <div className={styles.entryListItem}>
-            <p className={styles.entryListItemTime}>
-              {Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric', hour12: true }).format(entry.created_at)}
-            </p>
-
-            <h2 className={styles.entryListItemTitle}>{entry.title}</h2>
-            <div className={styles.entryListItemBody}>
-              <p>{entry.body}</p>
-            </div>
-          </div>
-        </Link>
-      </div>
+      <Link href={`archive/${entry.slug}`}>
+        <div className={styles.preview}>
+          <span>
+            {Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric', hour12: true }).format(entry.created_at)}
+          </span>
+          <h3>{entry.title}</h3>
+          <p>{entry.body}</p>
+        </div>
+      </Link>
     </div>
   );
 }

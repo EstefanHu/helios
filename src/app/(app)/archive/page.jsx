@@ -1,18 +1,24 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import Link from 'next/link';
 import EntryListItem from './EntryListItem';
 import EntryMonthWrapper from './EntryMonthWrapper';
 import styles from './Archive.module.scss';
 import { getEntries, getEntryCount } from '@/app/actions/entries.js';
+import { TravelerContext } from '../ContextProvider';
+import { RotatingLines } from 'react-loader-spinner';
 
 export default function Home() {
   const [entryList, setEntryList] = useState([]);
   const [totalEntries, setTotalEntries] = useState(0);
+  const { traveler } = useContext(TravelerContext);
 
   // offset tracks how many rows to skip over when fetching
   const [offset, setOffset] = useState(0);
   // limit is the # of entries to fetch at a time
-  const limit = 10;
+  const limit = 5;
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getEntryCount()
@@ -21,20 +27,21 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // TODO: get actual user id
-    const userId = 1;
-    getEntries(userId, limit, offset)
-      .then((entries) => {
+    setLoading(true);
+    getEntries(traveler.travelerId, limit, offset)
+      .then((res) => {
         // if check is for avoiding concat on initial render,
         // which led to a duplicate entries bug
+        const { entries } = res;
         if (offset === 0) {
           setEntryList(entries);
         } else {
           setEntryList((prev) => prev.concat(entries));
         }
       })
-      .catch((err) => console.error(err));
-  }, [offset]);
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
+  }, [traveler, offset]);
 
   function fetchMoreEntries() {
     // updating the offset triggers the useEffect
@@ -49,7 +56,7 @@ export default function Home() {
 
   return (
     <div className={styles.archiveContainer}>
-      <div className={styles.entryListContainer}>
+      <section>
         {entryMonths.map((month) => {
           const filteredEntriesByMonth = entryList.filter(
             (entry) => entry.created_at.toLocaleString('default', { month: 'long' }) === month
@@ -63,10 +70,25 @@ export default function Home() {
             </EntryMonthWrapper>
           );
         })}
-        <div className={styles.centerContainer}>
-          {entryList.length < totalEntries && <button onClick={fetchMoreEntries}>Show more</button>}
-        </div>
-      </div>
+        {loading && (
+          <div className={styles.centerContainer}>
+            <RotatingLines strokeColor='#f3b04e' height='48' width='48' />
+          </div>
+        )}
+        {!loading && (
+          <div className={styles.centerContainer}>
+            {!entryList.length ? (
+              <p>
+                No entries yet. <Link href='/write'>Write your first!</Link>
+              </p>
+            ) : entryList.length < totalEntries ? (
+              <button onClick={fetchMoreEntries}>Show more</button>
+            ) : (
+              <p className='italicLight'>You&apos;ve reached the end.</p>
+            )}
+          </div>
+        )}
+      </section>
     </div>
   );
 }

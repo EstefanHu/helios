@@ -1,16 +1,15 @@
 import { getEntry } from '@/app/actions/entries.js';
 import { getEntries } from '@/app/actions/entries.js';
 import viewer from './viewer.module.scss';
-import layout from '../../layout.module.scss';
 
-export async function generateStaticParams() {
-  // TODO: replace user id
-  const entries = await getEntries(1);
+// export async function generateStaticParams() {
+//   // TODO: replace user id
+//   const entries = await getEntries(1);
 
-  return entries.map((entry) => ({
-    slug: entry.slug,
-  }));
-}
+//   return entries.map((entry) => ({
+//     slug: entry.slug,
+//   }));
+// }
 
 export default async function Page({ params }) {
   const entryResponse = await getEntry(params.slug);
@@ -32,13 +31,13 @@ export default async function Page({ params }) {
         </div>
         <div className={viewer.editGroup}>
           <button>edit</button>
-          <span className={layout.italicLight}>
+          <span className='italicLight'>
             last edited {entry.updated_at.toLocaleDateString('en-us', { month: 'short', day: 'numeric' })}
           </span>
         </div>
       </div>
-      <h1 className={layout.title}>{entry.title}</h1>
-      <p className={layout.bodyText}>{entry.body}</p>
+      <h1 className='title'>{entry.title}</h1>
+      <p className='bodyText'>{entry.body}</p>
     </section>
   );
 }
