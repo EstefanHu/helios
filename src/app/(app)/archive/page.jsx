@@ -72,11 +72,7 @@ export default function Home() {
         })}
         {loading && (
           <div className={styles.centerContainer}>
-            <RotatingLines 
-              strokeColor='#f3b04e' 
-              height="48"
-              width="48"
-            />
+            <RotatingLines strokeColor='#f3b04e' height='48' width='48' />
           </div>
         )}
         {!loading && (
